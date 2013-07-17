@@ -1,0 +1,54 @@
+﻿生成启动时间为 2013/6/5 15:39:11。
+     1>项目“D:\Demo\yexf\layer3\layer3.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Debug\layer3.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt common.c decode.c huffman.c layer3.c
+         layer3.c
+     1>d:\demo\yexf\layer3\layer3.c(32): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : 参见“fopen”的声明
+         huffman.c
+     1>d:\demo\yexf\layer3\huffman.c(47): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(325) : 参见“sscanf”的声明
+     1>d:\demo\yexf\layer3\huffman.c(56): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(325) : 参见“sscanf”的声明
+     1>d:\demo\yexf\layer3\huffman.c(65): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(325) : 参见“sscanf”的声明
+     1>d:\demo\yexf\layer3\huffman.c(87): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\demo\yexf\layer3\huffman.c(88): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(253) : 参见“fscanf”的声明
+     1>d:\demo\yexf\layer3\huffman.c(138): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\demo\yexf\layer3\huffman.c(144): warning C4554: “<<”: 检查运算符优先级可能存在的错误；使用圆括号阐明优先级
+     1>d:\demo\yexf\layer3\huffman.c(145): warning C4554: “<<”: 检查运算符优先级可能存在的错误；使用圆括号阐明优先级
+         decode.c
+     1>d:\demo\yexf\layer3\decode.c(209): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\demo\yexf\layer3\decode.c(795): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(325) : 参见“sscanf”的声明
+     1>d:\demo\yexf\layer3\decode.c(853): warning C4244: “初始化”: 从“double”转换到“long”，可能丢失数据
+     1>d:\demo\yexf\layer3\decode.c(856): warning C4244: “=”: 从“long”转换到“short”，可能丢失数据
+     1>d:\demo\yexf\layer3\decode.c(902): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+         common.c
+     1>d:\demo\yexf\layer3\common.c(23): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(110) : 参见“strcat”的声明
+     1>d:\demo\yexf\layer3\common.c(24): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : 参见“fopen”的声明
+     1>d:\demo\yexf\layer3\common.c(81): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : 参见“fopen”的声明
+     1>d:\demo\yexf\layer3\common.c(297): warning C4018: “<”: 有符号/无符号不匹配
+         正在生成代码...
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Demo\yexf\Debug\layer3.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\layer3.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Demo\yexf\Debug\layer3.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Demo\yexf\Debug\layer3.lib" /MACHINE:X86 Debug\common.obj
+         Debug\decode.obj
+         Debug\huffman.obj
+         Debug\layer3.obj
+         layer3.vcxproj -> D:\Demo\yexf\Debug\layer3.exe
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\Demo\yexf\Debug\layer3.exe;#1" /manifest Debug\layer3.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         正在删除文件“Debug\layer3.unsuccessfulbuild”。
+         正在对“Debug\layer3.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“D:\Demo\yexf\layer3\layer3.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.09

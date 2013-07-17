@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wxf_mp3", "wxf_mp3\wxf_mp3.vcxproj", "{D5F4DE3D-3667-410A-8BC5-D7D44E757B8A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wxf_mpeg", "wxf_mpeg\wxf_mpeg.vcxproj", "{0D47113D-3380-4AD9-B29F-34B6656C44C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5F4DE3D-3667-410A-8BC5-D7D44E757B8A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D5F4DE3D-3667-410A-8BC5-D7D44E757B8A}.Debug|Win32.Build.0 = Debug|Win32
+		{D5F4DE3D-3667-410A-8BC5-D7D44E757B8A}.Release|Win32.ActiveCfg = Release|Win32
+		{D5F4DE3D-3667-410A-8BC5-D7D44E757B8A}.Release|Win32.Build.0 = Release|Win32
+		{0D47113D-3380-4AD9-B29F-34B6656C44C1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0D47113D-3380-4AD9-B29F-34B6656C44C1}.Debug|Win32.Build.0 = Debug|Win32
+		{0D47113D-3380-4AD9-B29F-34B6656C44C1}.Release|Win32.ActiveCfg = Release|Win32
+		{0D47113D-3380-4AD9-B29F-34B6656C44C1}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

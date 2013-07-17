@@ -1,0 +1,27 @@
+﻿生成启动时间为 2013/7/17 15:39:46。
+     1>项目“D:\Work\Audio\wxf_mp3\wxf_mp3.vcxproj”在节点 2 上(build 个目标)。
+     1>PrepareForBuild:
+         正在创建目录“D:\Work\Audio\Debug\”。
+       InitializeBuildStatus:
+         正在创建“Debug\wxf_mp3.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt main.c wxf_comm.c wxf_mp3st.c
+         wxf_mp3st.c
+         wxf_comm.c
+         main.c
+         正在生成代码...
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Work\Audio\Debug\wxf_mp3.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\wxf_mp3.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Work\Audio\Debug\wxf_mp3.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Work\Audio\Debug\wxf_mp3.lib" /MACHINE:X86 Debug\main.obj
+         Debug\wxf_comm.obj
+         Debug\wxf_mp3st.obj
+         wxf_mp3.vcxproj -> D:\Work\Audio\Debug\wxf_mp3.exe
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\Work\Audio\Debug\wxf_mp3.exe;#1" /manifest Debug\wxf_mp3.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         正在删除文件“Debug\wxf_mp3.unsuccessfulbuild”。
+         正在对“Debug\wxf_mp3.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“D:\Work\Audio\wxf_mp3\wxf_mp3.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:02.26

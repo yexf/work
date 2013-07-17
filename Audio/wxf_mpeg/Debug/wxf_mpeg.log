@@ -1,0 +1,144 @@
+﻿生成启动时间为 2013/6/5 22:36:51。
+     1>项目“D:\Demo\yexf\wxf_mpeg\wxf_mpeg.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在对“Debug\wxf_mpeg.unsuccessfulbuild”执行 Touch 任务。
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D PROTO_ARGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt common.c decode.c musicout.c
+         musicout.c
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(359): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(360): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(364): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(371): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(372): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(376): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(411): warning C4013: “exit”未定义；假设外部返回 int
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(496): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(498): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(499): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(500): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(504): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(506): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(532): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(533): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(539): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(540): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(110) : 参见“strcat”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(554): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : 参见“fopen”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(617): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(664): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(835): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : 参见“fopen”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(913): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(914): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(915): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : 参见“fopen”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(1087): warning C4244: “=”: 从“double”转换到“short”，可能丢失数据
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(1088): warning C4244: “=”: 从“double”转换到“short”，可能丢失数据
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(1089): warning C4244: “=”: 从“double”转换到“short”，可能丢失数据
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(1125): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : 参见“fopen”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(1126): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : 参见“fopen”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(1127): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : 参见“fopen”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(1128): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : 参见“fopen”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(1129): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : 参见“fopen”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(1130): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : 参见“fopen”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(1302): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(1320): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\musicout.c(1337): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+         decode.c
+     1>d:\demo\yexf\wxf_mpeg\decode.c(1520): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\demo\yexf\wxf_mpeg\decode.c(1580): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\demo\yexf\wxf_mpeg\decode.c(1616): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\demo\yexf\wxf_mpeg\decode.c(1664): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\demo\yexf\wxf_mpeg\decode.c(1787): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\demo\yexf\wxf_mpeg\decode.c(1828): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\demo\yexf\wxf_mpeg\decode.c(2410): warning C4013: “exit”未定义；假设外部返回 int
+     1>d:\demo\yexf\wxf_mpeg\decode.c(2415): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(325) : 参见“sscanf”的声明
+     1>d:\demo\yexf\wxf_mpeg\decode.c(2487): warning C4244: “=”: 从“double”转换到“long”，可能丢失数据
+     1>d:\demo\yexf\wxf_mpeg\decode.c(2488): warning C4244: “=”: 从“double”转换到“long”，可能丢失数据
+     1>d:\demo\yexf\wxf_mpeg\decode.c(2489): warning C4244: “=”: 从“double”转换到“long”，可能丢失数据
+     1>d:\demo\yexf\wxf_mpeg\decode.c(2551): warning C4244: “=”: 从“double”转换到“long”，可能丢失数据
+     1>d:\demo\yexf\wxf_mpeg\decode.c(2552): warning C4244: “=”: 从“double”转换到“long”，可能丢失数据
+     1>d:\demo\yexf\wxf_mpeg\decode.c(2553): warning C4244: “=”: 从“double”转换到“long”，可能丢失数据
+     1>d:\demo\yexf\wxf_mpeg\decode.c(2585): warning C4244: “=”: 从“long”转换到“short”，可能丢失数据
+     1>d:\demo\yexf\wxf_mpeg\decode.c(2619): warning C4244: “=”: 从“long”转换到“short”，可能丢失数据
+         common.c
+     1>d:\demo\yexf\wxf_mpeg\common.c(288): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(110) : 参见“strcat”的声明
+     1>d:\demo\yexf\wxf_mpeg\common.c(289): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : 参见“fopen”的声明
+     1>d:\demo\yexf\wxf_mpeg\common.c(268): warning C4101: “envdir”: 未引用的局部变量
+     1>d:\demo\yexf\wxf_mpeg\common.c(325): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\common.c(338): warning C4013: “exit”未定义；假设外部返回 int
+     1>d:\demo\yexf\wxf_mpeg\common.c(346): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(325) : 参见“sscanf”的声明
+     1>d:\demo\yexf\wxf_mpeg\common.c(349): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(325) : 参见“sscanf”的声明
+     1>d:\demo\yexf\wxf_mpeg\common.c(377): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>d:\demo\yexf\wxf_mpeg\common.c(403): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>d:\demo\yexf\wxf_mpeg\common.c(593): warning C4013: “malloc”未定义；假设外部返回 int
+     1>d:\demo\yexf\wxf_mpeg\common.c(624): warning C4013: “free”未定义；假设外部返回 int
+     1>d:\demo\yexf\wxf_mpeg\common.c(847): warning C4013: “calloc”未定义；假设外部返回 int
+     1>d:\demo\yexf\wxf_mpeg\common.c(847): warning C4047: “=”:“char *”与“int”的间接级别不同
+     1>d:\demo\yexf\wxf_mpeg\common.c(898): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+     1>d:\demo\yexf\wxf_mpeg\common.c(928): warning C4047: “=”:“char *”与“int”的间接级别不同
+     1>d:\demo\yexf\wxf_mpeg\common.c(992): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(188) : 参见“strncpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\common.c(1035): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\common.c(1036): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\common.c(1037): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(105) : 参见“strcpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\common.c(1050): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\string.h(188) : 参见“strncpy”的声明
+     1>d:\demo\yexf\wxf_mpeg\common.c(1134): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : 参见“fopen”的声明
+     1>d:\demo\yexf\wxf_mpeg\common.c(1188): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 10.0\vc\include\stdio.h(234) : 参见“fopen”的声明
+         正在生成代码...
+     1>d:\demo\yexf\wxf_mpeg\common.c(1225): warning C4715: “get1bit”: 不是所有的控件路径都返回值
+     1>d:\demo\yexf\wxf_mpeg\common.c(1251): warning C4715: “getbits”: 不是所有的控件路径都返回值
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Demo\yexf\Debug\wxf_mpeg.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\wxf_mpeg.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Demo\yexf\Debug\wxf_mpeg.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Demo\yexf\Debug\wxf_mpeg.lib" /MACHINE:X86 Debug\common.obj
+         Debug\decode.obj
+         Debug\musicout.obj
+         wxf_mpeg.vcxproj -> D:\Demo\yexf\Debug\wxf_mpeg.exe
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\Demo\yexf\Debug\wxf_mpeg.exe;#1" /manifest Debug\wxf_mpeg.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         正在删除文件“Debug\wxf_mpeg.unsuccessfulbuild”。
+         正在对“Debug\wxf_mpeg.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“D:\Demo\yexf\wxf_mpeg\wxf_mpeg.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.94

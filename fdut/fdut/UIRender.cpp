@@ -369,7 +369,7 @@ TImageInfo* CRenderEngine::LoadImage(STRINGorID bitmap, LPCTSTR type, DWORD mask
     for( int i = 0; i < x * y; i++ ) 
     {
         pDest[i*4 + 3] = pImage[i*4 + 3];
-        if( pDest[i*4 + 3] < 255 )c
+        if( pDest[i*4 + 3] < 255 )
         {
             pDest[i*4] = (BYTE)(DWORD(pImage[i*4 + 2])*pImage[i*4 + 3]/255);
             pDest[i*4 + 1] = (BYTE)(DWORD(pImage[i*4 + 1])*pImage[i*4 + 3]/255);

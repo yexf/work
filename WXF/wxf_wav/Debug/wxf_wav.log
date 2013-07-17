@@ -1,0 +1,25 @@
+﻿生成启动时间为 2013/6/28 17:40:21。
+     1>项目“D:\Project\WXF\wxf_wav\wxf_wav.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在对“Debug\wxf_wav.unsuccessfulbuild”执行 Touch 任务。
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt wxf_fbuf.c wxf_wave.c
+         wxf_wave.c
+         wxf_fbuf.c
+         正在生成代码...
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Project\WXF\Debug\wxf_wav.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\wxf_wav.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Project\WXF\Debug\wxf_wav.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Project\WXF\Debug\wxf_wav.lib" /MACHINE:X86 Debug\main.obj
+         Debug\wxf_fbuf.obj
+         Debug\wxf_wav.obj
+         Debug\wxf_wave.obj
+         wxf_wav.vcxproj -> D:\Project\WXF\Debug\wxf_wav.exe
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\Project\WXF\Debug\wxf_wav.exe;#1" /manifest Debug\wxf_wav.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         正在删除文件“Debug\wxf_wav.unsuccessfulbuild”。
+         正在对“Debug\wxf_wav.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“D:\Project\WXF\wxf_wav\wxf_wav.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:02.12

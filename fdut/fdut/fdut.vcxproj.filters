@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Control">
+      <UniqueIdentifier>{af4cc6b5-ac71-4ab2-85e2-2c396ee3fd09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{395ffd07-fde2-4f7e-9c94-75dfaac03d3a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="UIActiveX.cpp">
+      <Filter>Control</Filter>
+    </ClCompile>
+    <ClCompile Include="UICombo.cpp">
+      <Filter>Control</Filter>
+    </ClCompile>
+    <ClCompile Include="UICommonControls.cpp">
+      <Filter>Control</Filter>
+    </ClCompile>
+    <ClCompile Include="UIContainer.cpp">
+      <Filter>Control</Filter>
+    </ClCompile>
+    <ClCompile Include="UIControl.cpp">
+      <Filter>Control</Filter>
+    </ClCompile>
+    <ClCompile Include="UIList.cpp">
+      <Filter>Control</Filter>
+    </ClCompile>
+    <ClCompile Include="UIRichEdit.cpp">
+      <Filter>Control</Filter>
+    </ClCompile>
+    <ClCompile Include="UIBase.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="UIDelegate.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="UIDlgBuilder.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="UIManager.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="UIMarkup.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="UIRender.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="stb_image.c" />
+    <ClCompile Include="StdAfx.cpp" />
+    <ClCompile Include="UIlib.cpp" />
+    <ClCompile Include="XUnzip.cpp" />
+  </ItemGroup>
+</Project>

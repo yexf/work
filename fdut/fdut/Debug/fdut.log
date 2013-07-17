@@ -1,16 +1,17 @@
-﻿生成启动时间为 2013/5/21 9:30:28。
-     1>项目“D:\Project\fdut\fdut\fdut.vcxproj”在节点 4 上(build 个目标)。
+﻿生成启动时间为 2013/7/17 17:10:02。
+     1>项目“D:\Work\fdut\fdut\fdut.vcxproj”在节点 4 上(build 个目标)。
      1>InitializeBuildStatus:
-         正在创建“Debug\fdut.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+         正在对“Debug\fdut.unsuccessfulbuild”执行 Touch 任务。
        ClCompile:
          C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\include /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D UILIB_EXPORTS /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt UIActiveX.cpp UICombo.cpp UICommonControls.cpp UIContainer.cpp UIControl.cpp UIList.cpp UIRichEdit.cpp UIBase.cpp UIDelegate.cpp UIDlgBuilder.cpp UIManager.cpp UIMarkup.cpp UIRender.cpp StdAfx.cpp UIlib.cpp XUnzip.cpp
          XUnzip.cpp
+     1>d:\work\fdut\fdut\xunzip.cpp : fatal error C1033: 无法打开程序数据库“d:\work\fdut\fdut\debug\vc100.idb”
          UIlib.cpp
          StdAfx.cpp
          UIRender.cpp
-     1>d:\project\fdut\fdut\uirender.cpp(373): error C2065: “c”: 未声明的标识符
-     1>d:\project\fdut\fdut\uirender.cpp(373): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
-     1>d:\project\fdut\fdut\uirender.cpp(379): error C2181: 没有匹配 if 的非法 else
+     1>d:\work\fdut\fdut\uirender.cpp(373): error C2065: “c”: 未声明的标识符
+     1>d:\work\fdut\fdut\uirender.cpp(373): error C2143: 语法错误 : 缺少“;”(在“{”的前面)
+     1>d:\work\fdut\fdut\uirender.cpp(379): error C2181: 没有匹配 if 的非法 else
          UIMarkup.cpp
          UIManager.cpp
          UIDlgBuilder.cpp
@@ -24,8 +25,8 @@
          UICombo.cpp
          UIActiveX.cpp
          正在生成代码...
-     1>已完成生成项目“D:\Project\fdut\fdut\fdut.vcxproj”(build 个目标)的操作 - 失败。
+     1>已完成生成项目“D:\Work\fdut\fdut\fdut.vcxproj”(build 个目标)的操作 - 失败。
 
 生成失败。
 
-已用时间 00:00:12.89
+已用时间 00:00:12.55

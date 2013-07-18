@@ -1,16 +1,13 @@
-﻿生成启动时间为 2013/7/18 12:54:18。
+﻿生成启动时间为 2013/7/18 14:15:09。
      1>项目“D:\Work\WXFGUI\360Soft\360Soft.vcxproj”在节点 2 上(build 个目标)。
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(299,5): warning MSB8004: Output 目录未以斜杠结尾。此生成实例将添加斜杠，因为必须有这个斜杠才能正确计算 Output 目录。
      1>InitializeBuildStatus:
-         正在创建“Debug\360Soft.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+         正在对“Debug\360Soft.unsuccessfulbuild”执行 Touch 任务。
        ClCompile:
          所有输出均为最新。
        Link:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\bin\360Soft.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\360Soft.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Work\WXFGUI\bin\360Soft.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\bin\360Soft.lib" /MACHINE:X86 Debug\StdAfx.obj
-         Debug\WxfMain.obj
+         所有输出均为最新。
          360Soft.vcxproj -> D:\Work\WXFGUI\360Soft\..\bin\360Soft.exe
-       Manifest:
-         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"..\bin\360Soft.exe;#1" /manifest Debug\360Soft.exe.intermediate.manifest
        FinalizeBuildStatus:
          正在删除文件“Debug\360Soft.unsuccessfulbuild”。
          正在对“Debug\360Soft.lastbuildstate”执行 Touch 任务。
@@ -18,4 +15,4 @@
 
 生成成功。
 
-已用时间 00:00:00.53
+已用时间 00:00:00.04

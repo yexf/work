@@ -1,0 +1,60 @@
+﻿生成启动时间为 2013/7/18 11:48:28。
+     1>项目“D:\Work\duilib\DuiLib\DuiLib.vcxproj”在节点 2 上(rebuild 个目标)。
+     1>_PrepareForClean:
+         正在删除文件“UnicodeDebug\DuiLib.lastbuildstate”。
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(299,5): warning MSB8004: Output 目录未以斜杠结尾。此生成实例将添加斜杠，因为必须有这个斜杠才能正确计算 Output 目录。
+       InitializeBuildStatus:
+         正在创建“UnicodeDebug\DuiLib.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D UILIB_EXPORTS /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp".\Debug_u/DuiLib.pch" /Fo".\Debug_u/" /Fd".\Debug_u/vc100.pdb" /Gd /TP /analyze- /errorReport:prompt StdAfx.cpp
+         StdAfx.cpp
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D UILIB_EXPORTS /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug_u/" /Fd".\Debug_u/vc100.pdb" /Gd /TC /analyze- /errorReport:prompt stb_image.c
+         stb_image.c
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D UILIB_EXPORTS /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp".\Debug_u/DuiLib.pch" /Fo".\Debug_u/" /Fd".\Debug_u/vc100.pdb" /Gd /TP /analyze- /errorReport:prompt UIActiveX.cpp UIBase.cpp UICombo.cpp UICommonControls.cpp UIContainer.cpp UIControl.cpp UIDelegate.cpp UIDlgBuilder.cpp UIlib.cpp UIList.cpp UIManager.cpp UIMarkup.cpp UIRender.cpp UIRichEdit.cpp
+         UIRichEdit.cpp
+         UIRender.cpp
+         UIMarkup.cpp
+         UIManager.cpp
+         UIList.cpp
+         UIlib.cpp
+         UIDlgBuilder.cpp
+         UIDelegate.cpp
+         UIControl.cpp
+         UIContainer.cpp
+         UICommonControls.cpp
+         UICombo.cpp
+         UIBase.cpp
+         UIActiveX.cpp
+         正在生成代码...
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D UILIB_EXPORTS /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug_u/" /Fd".\Debug_u/vc100.pdb" /Gd /TP /analyze- /errorReport:prompt XUnzip.cpp
+         XUnzip.cpp
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(D:\Work\duilib\DuiLib\..\bin\DuiLib.dll) 与 Linker 的 OutputFile 属性值(D:\Work\duilib\bin\DuiLib_ud.dll)不匹配。这可能导致项目生成不正确。若要更正此问题，请确保 $(OutDir)、$(TargetName) 和 $(TargetExt) 属性值与 %(Link.OutputFile) 中指定的值匹配。
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(992,5): warning MSB8012: TargetName(DuiLib) 与 Linker 的 OutputFile 属性值(DuiLib_ud)不匹配。这可能导致项目生成不正确。若要更正此问题，请确保 $(OutDir)、$(TargetName) 和 $(TargetExt) 属性值与 %(Link.OutputFile) 中指定的值匹配。
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\bin\DuiLib_ud.dll" /INCREMENTAL /NOLOGO Riched20.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST:NO /DEBUG /PDB:".\Debug_u/DuiLib_ud.pdb" /TLBID:1 /BASE:"0x11000000" /DYNAMICBASE /NXCOMPAT /IMPLIB:"../bin/DuiLib_ud.lib" /MACHINE:X86 /DLL .\Debug_u/stb_image.obj
+         .\Debug_u/StdAfx.obj
+         .\Debug_u/UIActiveX.obj
+         .\Debug_u/UIBase.obj
+         .\Debug_u/UICombo.obj
+         .\Debug_u/UICommonControls.obj
+         .\Debug_u/UIContainer.obj
+         .\Debug_u/UIControl.obj
+         .\Debug_u/UIDelegate.obj
+         .\Debug_u/UIDlgBuilder.obj
+         .\Debug_u/UIlib.obj
+         .\Debug_u/UIList.obj
+         .\Debug_u/UIManager.obj
+         .\Debug_u/UIMarkup.obj
+         .\Debug_u/UIRender.obj
+         .\Debug_u/UIRichEdit.obj
+         .\Debug_u/XUnzip.obj
+            正在创建库 ../bin/DuiLib_ud.lib 和对象 ../bin/DuiLib_ud.exp
+         DuiLib.vcxproj -> D:\Work\duilib\DuiLib\..\bin\DuiLib.dll
+       FinalizeBuildStatus:
+         正在删除文件“UnicodeDebug\DuiLib.unsuccessfulbuild”。
+         正在对“UnicodeDebug\DuiLib.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“D:\Work\duilib\DuiLib\DuiLib.vcxproj”(rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:04.51

@@ -1,0 +1,70 @@
+﻿生成启动时间为 2013/7/18 12:46:29。
+     1>项目“D:\Work\duilib\MenuDemo\MenuDemo.vcxproj”在节点 5 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“.\Debug\MenuDemo.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0600 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug/" /Fd".\Debug/vc100.pdb" /FR".\Debug\\" /Gd /TP /analyze- /errorReport:prompt debug.cpp main_frame.cpp StdAfx.cpp UICrack.cpp UIMenu.cpp win_impl_base.cpp main.cpp
+         main.cpp
+         win_impl_base.cpp
+         UIMenu.cpp
+     1>d:\work\duilib\menudemo\observer_impl_base.hpp(119): warning C4018: “>=”: 有符号/无符号不匹配
+                 d:\work\duilib\menudemo\observer_impl_base.hpp(118): 编译类 模板 成员函数“ReceiverImplBase<ReturnT,ParamT> *ObserverImpl<ReturnT,ParamT>::Iterator<ReturnT,ParamT>::next(void)”时
+                 with
+                 [
+                     ReturnT=BOOL,
+                     ParamT=DuiLib::ContextMenuParam
+                 ]
+                 UIMenu.cpp(301): 参见对正在编译的类 模板 实例化“ObserverImpl<ReturnT,ParamT>::Iterator<ReturnT,ParamT>”的引用
+                 with
+                 [
+                     ReturnT=BOOL,
+                     ParamT=DuiLib::ContextMenuParam
+                 ]
+     1>d:\work\duilib\menudemo\observer_impl_base.hpp(122): warning C4018: “<”: 有符号/无符号不匹配
+         UICrack.cpp
+         StdAfx.cpp
+         main_frame.cpp
+         debug.cpp
+         正在生成代码...
+       ResourceCompile:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _DEBUG /D _VC80_UPGRADE=0x0600 /l"0x0406" /nologo /fo".\Debug\MenuDemo.res" MenuDemo.rc 
+       ManifestResourceCompile:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo".\Debug\MenuDemo.exe.embed.manifest.res" .\Debug\MenuDemo_manifest.rc 
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(D:\Work\duilib\MenuDemo\.\Debug\MenuDemo.exe) 与 Linker 的 OutputFile 属性值(D:\Work\duilib\bin\MenuDemo_d.exe)不匹配。这可能导致项目生成不正确。若要更正此问题，请确保 $(OutDir)、$(TargetName) 和 $(TargetExt) 属性值与 %(Link.OutputFile) 中指定的值匹配。
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(992,5): warning MSB8012: TargetName(MenuDemo) 与 Linker 的 OutputFile 属性值(MenuDemo_d)不匹配。这可能导致项目生成不正确。若要更正此问题，请确保 $(OutDir)、$(TargetName) 和 $(TargetExt) 属性值与 %(Link.OutputFile) 中指定的值匹配。
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"../bin/MenuDemo_d.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:".\Debug\MenuDemo.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:".\Debug/MenuDemo.pdb" /MAP:".\Debug/MenuDemo.map" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Debug\MenuDemo.lib" /MACHINE:X86 .\Debug\MenuDemo.res
+         .\Debug\MenuDemo.exe.embed.manifest.res
+         .\Debug/debug.obj
+         .\Debug/main_frame.obj
+         .\Debug/StdAfx.obj
+         .\Debug/UICrack.obj
+         .\Debug/UIMenu.obj
+         .\Debug/win_impl_base.obj
+         .\Debug/main.obj
+         D:\Work\duilib\bin\DuiLib_d.lib
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:".\Debug\MenuDemo.exe.embed.manifest" /manifest .\Debug\MenuDemo.exe.intermediate.manifest
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo".\Debug\MenuDemo.exe.embed.manifest.res" .\Debug\MenuDemo_manifest.rc 
+       LinkEmbedManifest:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"../bin/MenuDemo_d.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:".\Debug\MenuDemo.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:".\Debug/MenuDemo.pdb" /MAP:".\Debug/MenuDemo.map" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Debug\MenuDemo.lib" /MACHINE:X86 .\Debug\MenuDemo.res
+         .\Debug\MenuDemo.exe.embed.manifest.res
+         .\Debug/debug.obj
+         .\Debug/main_frame.obj
+         .\Debug/StdAfx.obj
+         .\Debug/UICrack.obj
+         .\Debug/UIMenu.obj
+         .\Debug/win_impl_base.obj
+         .\Debug/main.obj
+         D:\Work\duilib\bin\DuiLib_d.lib
+         MenuDemo.vcxproj -> D:\Work\duilib\MenuDemo\.\Debug\MenuDemo.exe
+       BscMake:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\bscmake.exe /nologo /o".\Debug/MenuDemo.bsc" .\Debug\debug.sbr .\Debug\main_frame.sbr .\Debug\StdAfx.sbr .\Debug\UICrack.sbr .\Debug\UIMenu.sbr .\Debug\win_impl_base.sbr .\Debug\main.sbr
+       FinalizeBuildStatus:
+         正在删除文件“.\Debug\MenuDemo.unsuccessfulbuild”。
+         正在对“.\Debug\MenuDemo.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“D:\Work\duilib\MenuDemo\MenuDemo.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:16.31

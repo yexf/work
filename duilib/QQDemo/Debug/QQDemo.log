@@ -1,0 +1,74 @@
+﻿生成启动时间为 2013/7/18 12:46:23。
+     1>项目“D:\Work\duilib\QQDemo\QQDemo.vcxproj”在节点 5 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“.\Debug\QQDemo.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _VC80_UPGRADE=0x0600 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug/" /Fd".\Debug/vc100.pdb" /FR".\Debug\\" /Gd /TP /analyze- /errorReport:prompt chat_dialog.cpp ColorPicker.cpp debug.cpp main.cpp main_frame.cpp StdAfx.cpp UIFriends.cpp UIGroups.cpp UIListCommonDefine.cpp UIMicroBlog.cpp win_impl_base.cpp ..\DuiLib\XUnzip.cpp color_skin.cpp
+         color_skin.cpp
+         XUnzip.cpp
+         win_impl_base.cpp
+         UIMicroBlog.cpp
+         UIListCommonDefine.cpp
+         UIGroups.cpp
+         UIFriends.cpp
+         StdAfx.cpp
+         main_frame.cpp
+         main.cpp
+         debug.cpp
+         ColorPicker.cpp
+         chat_dialog.cpp
+         正在生成代码...
+       ResourceCompile:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _DEBUG /D _VC80_UPGRADE=0x0600 /l"0x0406" /nologo /fo".\Debug\QQDemo.res" QQDemo.rc 
+       ManifestResourceCompile:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo".\Debug\QQDemo.exe.embed.manifest.res" .\Debug\QQDemo_manifest.rc 
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(D:\Work\duilib\QQDemo\.\Debug\QQDemo.exe) 与 Linker 的 OutputFile 属性值(D:\Work\duilib\bin\QQDemo_d.exe)不匹配。这可能导致项目生成不正确。若要更正此问题，请确保 $(OutDir)、$(TargetName) 和 $(TargetExt) 属性值与 %(Link.OutputFile) 中指定的值匹配。
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(992,5): warning MSB8012: TargetName(QQDemo) 与 Linker 的 OutputFile 属性值(QQDemo_d)不匹配。这可能导致项目生成不正确。若要更正此问题，请确保 $(OutDir)、$(TargetName) 和 $(TargetExt) 属性值与 %(Link.OutputFile) 中指定的值匹配。
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"../bin/QQDemo_d.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:".\Debug\QQDemo.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:".\Debug/QQDemo.pdb" /MAP:".\Debug/QQDemo.map" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Debug\QQDemo.lib" /MACHINE:X86 .\Debug\QQDemo.res
+         .\Debug\QQDemo.exe.embed.manifest.res
+         .\Debug/chat_dialog.obj
+         .\Debug/ColorPicker.obj
+         .\Debug/debug.obj
+         .\Debug/main.obj
+         .\Debug/main_frame.obj
+         .\Debug/StdAfx.obj
+         .\Debug/UIFriends.obj
+         .\Debug/UIGroups.obj
+         .\Debug/UIListCommonDefine.obj
+         .\Debug/UIMicroBlog.obj
+         .\Debug/win_impl_base.obj
+         .\Debug/XUnzip.obj
+         .\Debug/color_skin.obj
+         D:\Work\duilib\bin\DuiLib_d.lib
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:".\Debug\QQDemo.exe.embed.manifest" /manifest .\Debug\QQDemo.exe.intermediate.manifest
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo".\Debug\QQDemo.exe.embed.manifest.res" .\Debug\QQDemo_manifest.rc 
+       LinkEmbedManifest:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"../bin/QQDemo_d.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:".\Debug\QQDemo.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:".\Debug/QQDemo.pdb" /MAP:".\Debug/QQDemo.map" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Debug\QQDemo.lib" /MACHINE:X86 .\Debug\QQDemo.res
+         .\Debug\QQDemo.exe.embed.manifest.res
+         .\Debug/chat_dialog.obj
+         .\Debug/ColorPicker.obj
+         .\Debug/debug.obj
+         .\Debug/main.obj
+         .\Debug/main_frame.obj
+         .\Debug/StdAfx.obj
+         .\Debug/UIFriends.obj
+         .\Debug/UIGroups.obj
+         .\Debug/UIListCommonDefine.obj
+         .\Debug/UIMicroBlog.obj
+         .\Debug/win_impl_base.obj
+         .\Debug/XUnzip.obj
+         .\Debug/color_skin.obj
+         D:\Work\duilib\bin\DuiLib_d.lib
+         QQDemo.vcxproj -> D:\Work\duilib\QQDemo\.\Debug\QQDemo.exe
+       BscMake:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\bscmake.exe /nologo /o".\Debug/QQDemo.bsc" .\Debug\chat_dialog.sbr .\Debug\ColorPicker.sbr .\Debug\debug.sbr .\Debug\main.sbr .\Debug\main_frame.sbr .\Debug\StdAfx.sbr .\Debug\UIFriends.sbr .\Debug\UIGroups.sbr .\Debug\UIListCommonDefine.sbr .\Debug\UIMicroBlog.sbr .\Debug\win_impl_base.sbr .\Debug\XUnzip.sbr .\Debug\color_skin.sbr
+       FinalizeBuildStatus:
+         正在删除文件“.\Debug\QQDemo.unsuccessfulbuild”。
+         正在对“.\Debug\QQDemo.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“D:\Work\duilib\QQDemo\QQDemo.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:29.27

@@ -1,0 +1,190 @@
+CWnd中PreCreateWindow、PreSubclassWindow、SubclassWindow的区别 默认分类 2009-05-07 14:46:07 阅读160 评论0   字号：大中小 订阅 .
+
+class CWnd : public CCmdTarget
+{
+    
+public:
+    
+        virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
+    virtual void PreSubclassWindow();
+    BOOL SubclassWindow(HWND hWnd);
+    
+};　　让人很不容易区分，不知道它们究竟干了些什么，在什么情况下要改写哪个函数？
+　　想知道改写函数？让我先告诉你哪个不能改写，那就是SubclassWindow。Scott Meyers的杰作<<Effective C++>>的第36条是这样的Differentiate between inheritance of interface and inheritance of implementation. 看了后你马上就知道，父类中的非虚拟函数是设计成不被子类改写的。根据有无virtual关键字，我们在排除了SubclassWindow后，也就知道PreCreateWindow和PreSubClassWindow是被设计成可改写的。接着的问题便是该在什么时候该写了。要知道什么时候该写，必须知道函数是在什么时候被调用，还有执行函数的想要达到的目的。我们先看看对这三个函数，MSDN给的解释:
+　　PreCreateWindow:
+　　Called by the framework before the creation of the Windows window 
+　　attached to this CWnd object.
+　　(译:在窗口被创建并attach到this指针所指的CWnd对象之前，被framework调用)
+　　PreSubclassWindow:
+　　This member function is called by the framework to allow other necessary 
+　　subclassing to occur before the window is subclassed.
+　　(译:在window被subclassed之前被framework调用，用来允许其它必要的subclassing发生)
+虽然我已有译文，但还是让我对CWnd的attach和窗口的subclass作简单的解释吧！要理解attach，我们必须要知道一个C++的CWnd对象和窗口(window)的区别：window就是实在的窗口，而CWnd就是MFC用类对window所进行C++封装。attach，就是把窗口附加到CWnd对象上操作。附加(attach)完成后，CWnd对象才和窗口发生了联系。窗口的subclass是指修改窗口过程的操作，而不是面向对象中的派生子类。
+　　好了，PreCreateWindow由framework在窗口创建前被调用，函数名也说明了这一点，Pre应该是previous的缩写，PreSubclassWindow由framework在subclass窗口前调用。 这段话说了等于没说，你可能还是不知道，什么时候该改写哪个函数。罗罗嗦嗦的作者，还是用代码说话吧！源码之前，了无秘密(候捷语)。我们就看看MFC中的这三个函数都是这样实现的吧！ 
+BOOL CWnd::CreateEx(DWORD dwExStyle, LPCTSTR lpszClassName,
+                    LPCTSTR lpszWindowName, DWORD dwStyle,
+                    int x, int y, int nWidth, int nHeight,
+                    HWND hWndParent, HMENU nIDorHMenu, LPVOID lpParam)
+                    {
+    // allow modification of several common create parameters
+    CREATESTRUCT cs;
+    cs.dwExStyle = dwExStyle;
+    cs.lpszClass = lpszClassName;
+    cs.lpszName = lpszWindowName;
+    cs.style = dwStyle;
+    cs.x = x;
+    cs.y = y;
+    cs.cx = nWidth;
+    cs.cy = nHeight;
+    cs.hwndParent = hWndParent;
+    cs.hMenu = nIDorHMenu;
+    cs.hInstance = AfxGetInstanceHandle();
+    cs.lpCreateParams = lpParam;
+    
+    if (!PreCreateWindow(cs))
+        {
+        PostNcDestroy();
+        return FALSE;
+    }
+    
+    AfxHookWindowCreate(this);
+    HWND hWnd = ::CreateWindowEx(cs.dwExStyle, cs.lpszClass,
+        cs.lpszName, cs.style, cs.x, cs.y, cs.cx, cs.cy,
+        cs.hwndParent, cs.hMenu, cs.hInstance, cs.lpCreateParams);
+    
+    
+        return TRUE;
+}
+
+// for child windows
+BOOL CWnd::PreCreateWindow(CREATESTRUCT& cs)
+{
+    if (cs.lpszClass == NULL)
+        {
+        // make sure the default window class is registered
+        VERIFY(AfxDeferRegisterClass(AFX_WND_REG));
+        
+        // no WNDCLASS provided - use child window default
+        ASSERT(cs.style & WS_CHILD);
+        cs.lpszClass = _afxWnd;
+    }
+    return TRUE;
+}　　CWnd::CreateEx先设定cs(CREATESTRUCT)，在调用真正的窗口创建函数::CreateWindowEx之前，调用了CWnd::PreCreateWindow函数，并把参数cs以引用的方式传递了进去。而CWnd的PreCreateWindow函数也只是给cs.lpszClass赋值而已。毕竟，窗口创建函数CWnd::CreateEx的诸多参数中，并没有哪个指定了所要创建窗口的窗口类，而这又是不可缺少的(请参考<<windows程序设计>>第三章)。所以当你需要修改窗口的大小、风格、窗口所属的窗口类等cs成员变量时，要改写PreCreateWindow函数。 
+// From VS Install PathVC98MFCSRCWINCORE.CPP
+BOOL CWnd::SubclassWindow(HWND hWnd)
+{
+    if (!Attach(hWnd))
+        return FALSE;
+    
+    // allow any other subclassing to occur
+    PreSubclassWindow();
+    
+    // now hook into the AFX WndProc
+    WNDPROC* lplpfn = GetSuperWndProcAddr();
+    WNDPROC oldWndProc = (WNDPROC)::SetWindowLong(hWnd, GWL_WNDPROC,
+        (DWORD)AfxGetAfxWndProc());
+    ASSERT(oldWndProc != (WNDPROC)AfxGetAfxWndProc());
+    
+    if (*lplpfn == NULL)
+        *lplpfn = oldWndProc;   // the first control of that type created
+#ifdef _DEBUG
+    else if (*lplpfn != oldWndProc)
+        {
+        
+            ::SetWindowLong(hWnd, GWL_WNDPROC, (DWORD)oldWndProc);
+    }
+#endif
+    
+    return TRUE;
+}
+
+void CWnd::PreSubclassWindow()
+{
+    // no default processing
+}　　CWnd::SubclassWindow先调用函数Attach(hWnd)让CWnd对象和hWnd所指的窗口发生关联。接着在用::SetWindowLong修改窗口过程(subclass)前，调用了PreSubclassWindow。CWnd::PreSubclassWindow则是什么都没有做。
+　　在CWnd的实现中，除了CWnd::SubclassWindow会调用PreSubclassWindow外，还有一处。上面所列函数CreateEx的代码，其中调用了一个AfxHookWindowCreate函数，见下面代码： 
+// From VS Install PathVC98MFCSRCWINCORE.CPP
+BOOL CWnd::CreateEx()
+{
+    // allow modification of several common create parameters
+    
+        
+        if (!PreCreateWindow(cs))
+            {
+            PostNcDestroy();
+            return FALSE;
+        }
+        
+        AfxHookWindowCreate(this); 
+        HWND hWnd = ::CreateWindowEx(cs.dwExStyle, cs.lpszClass,
+            cs.lpszName, cs.style, cs.x, cs.y, cs.cx, cs.cy,
+            cs.hwndParent, cs.hMenu, cs.hInstance, cs.lpCreateParams);
+        
+        
+            return TRUE;
+}　　接着察看AfxHookWindowCreate的代码： 
+
+// From VS Install PathVC98MFCSRCWINCORE.CPP
+void AFXAPI AfxHookWindowCreate(CWnd* pWnd)
+{
+    
+        
+        if (pThreadState->m_hHookOldCbtFilter == NULL)
+            {
+            pThreadState->m_hHookOldCbtFilter = ::SetWindowsHookEx(WH_CBT,
+                _AfxCbtFilterHook, NULL, ::GetCurrentThreadId());
+            if (pThreadState->m_hHookOldCbtFilter == NULL)
+                AfxThrowMemoryException();
+        }
+        
+}
+　　其主要作用的::SetWindowsHookEx函数用于设置一个挂钩函数(Hook函数)_AfxCbtFilterHook，每当Windows产生一个窗口时(还有许多其它类似，请参考<<深入浅出MFC>>第9章，563页)，就会调用你设定的Hook函数。
+　　这样设定完成后，回到CWnd::CreateEx函数中，执行::CreateWindowEx进行窗口创建，窗口一产生，就会调用上面设定的Hook函数_AfxCbtFilterHook。而正是在_AfxCbtFilterHook中对函数PreSubclassWindow进行了第二次调用。见如下代码：
+
+// From VS Install PathVC98MFCSRCWINCORE.CPP
+/**//**//**//////////////////////////////////////////////////////////////////////////////
+// Window creation hooks
+
+LRESULT CALLBACK
+_AfxCbtFilterHook(int code, WPARAM wParam, LPARAM lParam)
+{
+           
+        
+        // connect the HWND to pWndInit
+        pWndInit->Attach(hWnd);
+    // allow other subclassing to occur first
+    pWndInit->PreSubclassWindow();
+    
+        {
+        // subclass the window with standard AfxWndProc
+        oldWndProc = (WNDPROC)SetWindowLong(hWnd, GWL_WNDPROC, (DWORD)afxWndProc);
+        ASSERT(oldWndProc != NULL);
+        *pOldWndProc = oldWndProc;
+    }
+    
+}　　也在调用函数SetWindowLong进行窗口subclass前调用了PreSubclassWindow.
+
+*******************************************************************************************
+
+通常情况下窗口是由用户创建的 
+CWnd::Create(..) 
+●在此流程中，MFC提供一个机会"PreCreateWindow()供用户在创建前作点手脚 
+
+而对于对话框等,窗口是通过subclass方式交给用户的 
+系统读入对话框模板,建立其中各个子窗口 
+
+然后将各子窗口的 消息处理函数替换成 对应的C++对象 的消息处理函数 (Subclass:子类化,或"接管") ,然后，这个子窗口就会按类中定义的方式来动作了。 
+
+在此过程中，调用的是CWnd:SubclassWindow( HWND hWnd ); 
+●在此流程中，MFC提供一个机会"PreSubclassWindow" 供用户在关联前作点手脚 
+
+具体来说，如果你定义一个窗口(如CButton派生类CMyButton)，然后使用对话框数据交换将一个按钮与自己的派生类对象关联，这时候，一些"建立前"的处理就应该写在"PreSubclassWindow"中。 
+
+如果你用的不是"对话框数据关联",而是在OnInitDialg中自己创建m_mybtn.Create(...) 
+这时候，一些"建立前"的处理就应该写在 
+"PreCreateWindow"中。
+
+这里“建立前”的处理包括像那些处理，跟PreCreateWindows()做的一些窗口初始化的工作有什么不同？
+
+PreCreateWindows函数中没有窗口可以用——还没有创建 
+PreSubclassWindow函数中可以对窗口进行操作。

@@ -1,0 +1,699 @@
+1 stdAfx.h
+* lengthof(x) 计算数组长度宏
+* MAX  两值最大
+* MIN  两值最小
+* CLAMP(x,a,b) x在a,b之间则取x否则取最小
+2 UIBase
+* UI_WNDSTYLE_ 窗口风格属性
+* UI_CLASSSTYLE_ 窗口类属性
+* TRACE(LPCTSTR pstrFormat, ...)
+   功能 - 调试信息
+   参考 - 参考printf
+* TRACEMSG(UINT uMsg)
+   功能 - 将windows消息转化成其对应的宏名
+   uMsg - Windows消息ID
+   返回值 - 宏名(字符串)
+* class STRINGorID
+   功能 - 统一资源ID, 字符串类型和整型统一输出为字符串类型
+* class CPoint
+   描述 - 点
+   函数 -
+     CPoint(LPARAM lParam) //将消息中lParam转化成点
+* class CSize
+   描述 - 矩形的宽和高
+* class CRect
+   描述 - 矩形区域
+   函数 -
+     void Empty() //设置left,right,top,bottom为零
+     void Join(const RECT& rc) //合并两个矩形产生一个包含两个矩形的新的矩形
+     void ResetOffset() //将矩形移动到left=0,top=0的位置
+     void Normalize() //调整left,right,top,bottom使之left < right top < bottom
+     void Offset(int cx, int cy) //移动矩形, cx 横向移动距离, cy 纵向移动距离
+     void Inflate(int cx, int cy) //放大矩形, cx左右各放大的大小, cy 上下各放大的大小
+     void Deflate(int cx, int cy) //缩小矩形, cx左右各缩小的大小, cy上下各缩小的大小
+     void Union(CRect& rc) //合并矩形, 与Join()函数功能几乎一致, 但对空矩形处理不同
+* class CStdPtrArray
+   变量 -
+     m_nAllocated //已申请空间大小(可储存Ptr的数量), 如果空间不足则去realloc m_nAllocated*2的空间
+* class CStdString 
+   实现 - 如果长度小于MAX_LOCAL_STRING_LEN(63)则在栈上分配, 否则在堆上分配
+   函数 -
+     void Assign(LPCTSTR pstr, int nLength = -1) //分配
+* class CStdStringMap 
+   描述 - 字符串map
+   实现 - 使用times33哈希算法
+* class CWindowWnd
+   函数 -
+     RegisterWindowClass() //RegisterClass的封装
+     RegisterSuperclass() //超类化窗口
+  Subclass() //子类化窗口
+     ShowModal() //窗口模态化
+     ?MessageBox() //?UIBase.cpp 为utf8
+     __WndProc() //消息处理函数
+     __ControlProc() //超类化消息处理函数
+  实现 - 
+    duilib消息处理机制
+    1 创建 - 通过CreateEx最后一个参数传递类指针this, 在消息处理函数中对WM_NCCREATE消息进行处理, 通过SetWindowLongPtr(GWLP_USERDATA)进行保存
+    2 消息处理 - 在消息处理函数通过GetWindowLongPtr(GWLP_USERDATA)得到其类指针, 调用虚函数HandleMessage()相应其他消息。
+   3 销毁 - 消息处理函数中对WM_NCDESTROY消息进行处理, 调用原消息处理函数, 重置(GWLP_USERDATA), 调用虚函数OnFinalMessage()做最后处理。
+============update 2011 06 07 =====================
+3 the 3rd part stb_image
+* 描述 - 载入各种图片格式文件
+* 函数 -
+     stbi_load_from_memory()
+   功能 - 加载图片
+   buffer - 内存数据
+      len - 数据大小,
+   x - [out]图像宽度(像素)
+      y - [out]图像高度(像素)
+   comp - [out]图像数据组成结果
+   req_comp - 图像数据组成
+     STBI_default = 0, // only used for req_comp
+  STBI_grey       = 1,
+  STBI_grey_alpha = 2,
+  STBI_rgb        = 3,
+  STBI_rgb_alpha  = 4
+
+   [more than] stb_image.c line 100 - 130
+     stbi_image_free()
+   功能 - 释放已加载的图片数据
+4 the 3rd part XUnzip
+* 描述 - 解压zip包
+* 函数 - 
+     OpenZip
+   功能 - 打开一个zip包
+   z - 内存地址, 文件名, 文件句柄
+   len - 长度
+      flag - 标识(ZIP_HANDLE=1, ZIP_FILENAME=2, ZIP_MEMORY=3)
+   return - HZIP
+  CloseZip
+    功能 - 关闭一个zip包
+      hz - HZIP
+  GetZipItem
+    功能 - 从zip包中获取一项
+    hz - HZIP
+    index - 序号
+    ze - zip入口点结构
+  FindZipItem
+    功能 - 在zip包中查找项
+    hz - HZIP
+    name - 项名
+    ic - 大小写敏感 CASE_INSENSITIVE=1, CASE_SENSITIVE=2
+    index - [out]序号
+    ze - zip入口点结构
+  UnzipItem
+    功能 - 解压项
+    hz - HZIP
+    dst - [out]解压后存储位置
+    len - 储存长度
+    flags - 标识(ZIP_HANDLE=1, ZIP_FILENAME=2, ZIP_MEMORY=3)
+5 class CRenderClip
+* 描述 - 区域引擎，设置在dc上绘制的区域，防止子控件绘制到父控件外侧（float属性控件除外）
+* 实现 - 
+* 函数 -
+   GenerateClip() //产生一个剪切区域, hDC窗口句柄, rc区域, clip[out]剪切区
+   GenerateRoundClip() //产生一个圆角剪切区域, hDC窗口句柄, rc区域, width 横向圆角弧度, height纵向圆角弧度, clip[out]剪切区
+   UseOldClipBegin(() //使用整个活跃区域作为剪切区, hDC窗口句柄, clip剪切区
+   UseOldClipEnd() //使用当前控件有效区域作为剪切区, hDC窗口句柄, clip剪切区
+============update 2011 06 15 =====================
+6 class CRenderEngine
+* 渲染引擎
+* 函数 - 
+   LoadImage()
+     功能 - 加载图像
+     bitmap - 图像
+     type - 类型
+     mask - 隐蔽色
+     实现 -
+       1 读取文件，资源和zip包中图像文件数据到内存[通过HIWORD(bitmap.m_lpstr)区别从资源中或文件中加载MAKEINTRESOURCE  The return value is the specified value in the low-order word and zero in the high-order word. (from msdn)]
+       2 创建DIB
+       3 通过stbi_load_from_memory加载数据文件并转化后复制到DIB中
+       4 返回TImageInfo结构
+   DrawImage()
+     功能 - 绘制图像
+     hDC - 设备句柄
+     hBitmap - 位图句柄
+     rc - 对象区域
+     rcPaint - 绘制区域
+     rcBmpPart - 位图区域
+     rcConrners - 拉伸区域
+     alphaChannel - alpha通道
+     uFade - 透明度
+     hole - 居中
+     xtiled - 横向平铺
+     ytiled - 纵向平铺
+     实现 - 
+       1 CreateCompatibleDC (创建内存设备句柄)
+       2 SelectObject() (将位图选入内存设备句柄)
+       3 AlphaBlend (alpha混合)
+       4 BitBlt() or StretchBlt() (绘制到内存设备句柄)
+       5 SelectObject() (将老的位图选入内存设备句柄)
+       6 DeleteDC (释放内存设备句柄)
+   DrawImageString()
+     功能 - 按标识字符串绘制图像
+     hDC - 设备句柄
+     pManager - 绘制管理者
+     rc - 对象区域
+     rcPaint - 绘制区域
+     pStrImage - 标识字符串
+     pStrModify - 标识字符串
+     实现 - 
+       1 分析标识字符串获取属性
+       2 获取图像数据
+       3 绘制图像
+  DrawColor()
+    功能 - 绘制矩形
+    hDC - 设备句柄
+    rc - 对象区域
+    color - 颜色(alpha, r, g, b)
+    实现 - 
+      如果不需要alpha混合则SetBkColor() ExtTextOut()
+      否则 创建一个像素大小的32位DIB
+  DrawGradient()
+    功能 - 绘制渐变
+    hDC - 设备句柄
+    rc - 对象区域
+    dwFirst - 颜色1
+    dwSecond - 颜色2
+    bVertical - 渐变方向 true垂直 false水平
+    nSteps - 步长 [使用GradientFill() API时无效]
+    实现 - 
+      1 渐变填充
+      2 alpha混合
+  DrawLine() - 绘制直线 
+  DrawRect() - 绘制矩形
+  DrawRoundRect() - 绘制圆角矩形
+  DrawText() - 绘制文字
+  DrawHtmlText() 
+    功能 - 绘制 "mini-html" 标识字符串
+    hDC - 设备句柄
+    pManager - 绘制管理者
+    rc - 对象区域
+    pstrText -  "mini-html" 标识字符串
+    dwTextColor - 字符串类型
+    pLinks - 产生链接效果的区域组
+    sLinks - 产生链接效果的区域组数量
+    nLinkRects - 产生链接效果的区域组数量
+    uStyle - 类型，同DrawText() Format Flags
+  GenerateBitmap()
+    功能 - 产生一个BMP位图
+    pManager - 绘制管理者
+    pControl - 控件句柄
+    rc - 对象区域
+    返回 - BMP句柄
+===============update 2011-06-16
+7 class INotifyUI - Listener interface
+8 class IMessageFilterUI - MessageFilter interface
+9 class CPaintManagerUI
+* 绘制管理者
+* 函数
+   Init() - 初始化
+   NeedUpdate() - 
+   Invalidate() - InvalidateRect API的封装
+   
+   GetPaintDC() - 设备句柄相关函数
+   GetPaintWindow() - 得到窗口句柄
+   GetTooltipWindow() - 得到提示窗口句柄
+   GetMousePos() - 得到鼠标位置
+   GetClientSize() - 得到客户端区域大小
+   获取/设置 窗口初始化时大小
+     GetInitSize()
+     SetInitSize()
+   获取/设置 托腮大小
+     GetSizeBox()
+     SetSizeBox()
+   获取/设置 标题区域大小
+     GetCaptionRect()
+     SetCaptionRect()
+   获取/设置 圆角大小
+     GetRoundCorner()
+     SetRoundCorner()
+   获取/设置 大小的最小限制
+     GetMinInfo()
+     SetMinInfo()
+   获取/设置 大小的最大限制
+     GetMaxInfo()
+     SetMaxInfo()
+   设置透明度
+     SetTransparent()
+   设置背景是否使用透明属性 
+     SetBackgroundTransparent()
+   获取/设置 刷新区域属性
+     IsShowUpdateRect()
+     SetShowUpdateRect()
+   获取/设置 应用程序对象实例句柄
+     GetInstance()
+     SetInstance()
+   获取 可执行程序所在路径
+     GetInstancePath()
+   获取/设置 当前工作目录
+     GetCurrentPath()
+     SetCurrentPath()
+   获取/设置 资源动态库句柄
+    GetResourceDll()
+    SetResourceDll()
+  获取/设置 资源路径
+    GetResourcePath()
+    SetResourcePath()
+  获取/设置 资源压缩包文件名
+    GetResourceZip()
+    SetResourceZip()
+  使用绘制管理者的根绘制管理者的资源设置 - 循环得到父绘制管理者直到找到最顶层的绘制管理者
+    UseParentResource()
+  得到绘制管理者
+    GetParentResource()
+  获取/设置 非可用状态文字颜色
+    GetDefaultDisabledColor()
+    SetDefaultDisabledColor()
+  获取/设置 默认字体颜色
+    GetDefaultFontColor()
+    SetDefaultFontColor()
+  获取/设置超链接默认字体颜色
+    GetDefaultLinkFontColor()
+    SetDefaultLinkFontColor()
+  获取/设置 鼠标漂浮在链接上时默认字体颜色
+    GetDefaultLinkHoverFontColor()
+    SetDefaultLinkHoverFontColor()
+  获取/设置 选中后背景颜色
+    GetDefaultSelectedBkColor()
+    SetDefaultSelectedBkColor()
+  获取/设置 默认字体
+    GetDefaultFontInfo()
+    SetDefaultFont()
+  字体列表操作
+    DWORD GetCustomFontCount() - 得到字体列表中项数量
+    HFONT AddFont(LPCTSTR pStrFontName, int nSize, bool bBold, bool bUnderline, bool bItalic) - 加入一种字体到字体列表中
+    HFONT AddFontAt(int index, LPCTSTR pStrFontName, int nSize, bool bBold, bool bUnderline, bool bItalic) - 加入一种字体到字体列表的指定位置
+    HFONT GetFont(int index) - 按序号得到字体列表中的字体
+    HFONT GetFont(LPCTSTR pStrFontName, int nSize, bool bBold, bool bUnderline, bool bItalic) - 按字体属性得到字体列表中的字体
+    bool FindFont(HFONT hFont) - 按句柄查找字体列表中的一项
+    bool FindFont(LPCTSTR pStrFontName, int nSize, bool bBold, bool bUnderline, bool bItalic) - 按属性查找字体列表中的一项
+    bool RemoveFont(HFONT hFont)  - 按句柄移除字体列表中的指定项
+    bool RemoveFontAt(int index) - 按序号移除字体列表中的指定项 
+    void RemoveAllFonts() - 移除字体列表中的所有项
+    TFontInfo* GetFontInfo(int index) - 按序号得到字体列表中项的属性
+    TFontInfo* GetFontInfo(HFONT hFont) - 按句柄得到字体列表中项的属性
+  图片列表操作
+    const TImageInfo* GetImage(LPCTSTR bitmap);
+    const TImageInfo* GetImageEx(LPCTSTR bitmap, LPCTSTR type = NULL, DWORD mask = 0);
+    const TImageInfo* AddImage(LPCTSTR bitmap, LPCTSTR type = NULL, DWORD mask = 0);
+    bool RemoveImage(LPCTSTR bitmap);
+    void RemoveAllImages();
+  默认属性列表操作
+    void AddDefaultAttributeList(LPCTSTR pStrControlName, LPCTSTR pStrControlAttrList);
+    LPCTSTR GetDefaultAttributeList(LPCTSTR pStrControlName) const;
+    bool RemoveDefaultAttributeList(LPCTSTR pStrControlName);
+    const CStdStringPtrMap& GetDefaultAttribultes() const;
+    void RemoveAllDefaultAttributeList();
+  将控件树附加到当前绘制管理者
+    bool AttachDialog(CControlUI* pControl);
+  初始化控件 把控件名称加入到绘制管理者的控件名map中
+    bool InitControls(CControlUI* pControl, CControlUI* pParent = NULL);
+  重置控件
+    void ReapObjects(CControlUI* pControl);
+  选项组操作
+    bool AddOptionGroup(LPCTSTR pStrGroupName, CControlUI* pControl); - 添加选项组
+    CStdPtrArray* GetOptionGroup(LPCTSTR pStrGroupName); - 通过名称得到选项组
+    void RemoveOptionGroup(LPCTSTR pStrGroupName, CControlUI* pControl); - 移除选项组
+    void RemoveAllOptionGroups(); - 移除所有选项组
+  得到控件焦点
+    CControlUI* GetFocus() const;
+  控件获得焦点
+    void SetFocus(CControlUI* pControl);
+  得到标签页控件
+    bool SetNextTabControl(bool bForward = true);
+  定时器操作
+    bool SetTimer(CControlUI* pControl, UINT nTimerID, UINT uElapse); - 设置一个定时器
+    bool KillTimer(CControlUI* pControl, UINT nTimerID); - 清除一个定时器
+    void RemoveAllTimers(); - 清楚所有定时器
+  捕获鼠标
+    void SetCapture();
+  释放捕获鼠标
+    void ReleaseCapture();
+  鼠标是否被捕获
+    bool IsCaptured();
+
+    bool AddNotifier(INotifyUI* pControl); - 加入一个Listener
+    bool RemoveNotifier(INotifyUI* pControl);   - 移除一个Listener
+    void SendNotify(TNotifyUI& Msg); - 发送一个Notify消息
+    void SendNotify(CControlUI* pControl, LPCTSTR pstrMessage, WPARAM wParam = 0, LPARAM lParam = 0); - 发送一个Notify消息
+
+    bool AddPreMessageFilter(IMessageFilterUI* pFilter); - 加入一个预处理Message Filter
+    bool RemovePreMessageFilter(IMessageFilterUI* pFilter); - 移除一个预处理Message Filter
+
+    bool AddMessageFilter(IMessageFilterUI* pFilter); - 加入一个Message Filter
+    bool RemoveMessageFilter(IMessageFilterUI* pFilter); - 移除一个Message Filter
+
+  PostPaint控件操作
+    int GetPostPaintCount() const; - 得到PostPaint控件数量
+    bool AddPostPaint(CControlUI* pControl); - 加入PostPaint控件
+    bool RemovePostPaint(CControlUI* pControl); - 移除一个PostPaint控件
+    bool SetPostPaintIndex(CControlUI* pControl, int iIndex); - 设置控件到指定的序列位置
+
+  加入控件到延迟处理列表当中
+    void AddDelayedCleanup(CControlUI* pControl);
+  得到根控件
+    CControlUI* GetRoot() const;
+  按照位置找到控件
+    CControlUI* FindControl(POINT pt) const;
+  按父窗口和位置查找控件
+    CControlUI* FindControl(CControlUI* pParent, POINT pt) const;
+  按名字查找控件
+    CControlUI* FindControl(LPCTSTR pstrName);
+  按父窗口和名字查找控件
+    CControlUI* FindControl(CControlUI* pParent, LPCTSTR pstrName);
+  消息循环
+    static void MessageLoop();
+  消息处理
+    static bool TranslateMessage(const LPMSG pMsg);
+  消息处理
+    bool MessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, LRESULT& lRes);
+  消息预处理
+    bool PreMessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, LRESULT& lRes);
+
+  回调函数 - 比较属性(pData)与控件(pThis)的属性是否相同
+    static CControlUI* CALLBACK __FindControlFromNameHash(CControlUI* pThis, LPVOID pData); - 按名称查找控件的回调函数
+    static CControlUI* CALLBACK __FindControlFromCount(CControlUI* pThis, LPVOID pData); - 计算控件数目的回调函数
+    static CControlUI* CALLBACK __FindControlFromPoint(CControlUI* pThis, LPVOID pData); - 按位置查找控件的回调函数
+    static CControlUI* CALLBACK __FindControlFromTab(CControlUI* pThis, LPVOID pData); - 查找下一个相应tab的控件
+    static CControlUI* CALLBACK __FindControlFromShortcut(CControlUI* pThis, LPVOID pData); - 快捷方式对应的控件
+    static CControlUI* CALLBACK __FindControlFromUpdate(CControlUI* pThis, LPVOID pData); - 查找需要刷新的控件
+    static CControlUI* CALLBACK __FindControlFromNameByParent(CControlUI* pThis, LPVOID pData); - 查找子控件
+
+    HWND m_hWndPaint;    //绘制窗口句柄
+    HDC m_hDcPaint;        //绘制DC
+    HDC m_hDcOffscreen; //屏幕兼容DC
+    HDC m_hDcBackground;    //背景DC
+    HBITMAP m_hbmpOffscreen;    //屏幕DIB
+    HBITMAP m_hbmpBackground;    //背景DIB
+    HWND m_hwndTooltip;    //提示窗口句柄
+    TOOLINFO m_ToolTip;    //提示结构
+    bool m_bShowUpdateRect;    //是否更新
+    //
+    CControlUI* m_pRoot;    //根控件指针
+    CControlUI* m_pFocus;    //获得焦点控件指针
+    CControlUI* m_pEventHover;    //鼠标停留控件指针
+    CControlUI* m_pEventClick;    //点击事件控件指针
+    CControlUI* m_pEventKey;    //相应键盘事件控件指针
+    //
+    POINT m_ptLastMousePos;    //鼠标位置
+    SIZE m_szMinWindow;        //窗口最小限制
+    SIZE m_szMaxWindow;        //窗口最大限制
+    SIZE m_szInitWindowSize;    //初始化窗口大小
+    RECT m_rcSizeBox;        //托腮大小
+    SIZE m_szRoundCorner;    //圆角大小
+    RECT m_rcCaption;        //标题大小
+    UINT m_uTimerID;        //计时器ID
+    bool m_bFirstLayout;    //是否为第一层
+    bool m_bUpdateNeeded;    //是否需要更新
+    bool m_bFocusNeeded;    //是否需要焦点
+    bool m_bOffscreenPaint;    //是否绘制m_hDcOffscreen
+    bool m_bAlphaBackground;    //背景是否透明
+    bool m_bMouseTracking;    //是否追踪鼠标
+    bool m_bMouseCapture;    //是否捕获鼠标
+    
+    CStdPtrArray m_aNotifiers;    //Listener 列表
+    CStdPtrArray m_aTimers;        //计时器列表
+    CStdPtrArray m_aPreMessageFilters;    //预处理消息列表
+    CStdPtrArray m_aMessageFilters;        //消息处理列表
+    CStdPtrArray m_aPostPaintControls;    //PostPaint控件列表
+    CStdPtrArray m_aDelayedCleanup;    //延迟释放控件列表
+    CStdStringPtrMap m_mNameHash;    //控件名哈希列表
+    CStdStringPtrMap m_mOptionGroup;    //选项组列表
+    
+    CPaintManagerUI* m_pParentResourcePM;    //当前绘制管理者的上一层绘制管理者（父绘制管理者）
+    DWORD m_dwDefalutDisabledColor;    //默认非可用状态字体颜色
+    DWORD m_dwDefalutFontColor;    //默认字体颜色
+    DWORD m_dwDefalutLinkFontColor;    //默认链接颜色
+    DWORD m_dwDefalutLinkHoverFontColor;    //默认鼠标漂浮时字体颜色
+    DWORD m_dwDefalutSelectedBkColor;    //默认被选择后背景颜色
+    TFontInfo m_DefaultFontInfo;    //默认字体信息
+    CStdPtrArray m_aCustomFonts;    //字体列表
+
+    CStdStringPtrMap m_mImageHash;    //图片资源名哈希表
+    CStdStringPtrMap m_DefaultAttrHash;    //默认属性哈希表
+    
+    static HINSTANCE m_hInstance;    //应用程序对象实例句柄
+    static HINSTANCE m_hResourceInstance;    //资源对象实例句柄
+    static CStdString m_pStrResourcePath;    //资源路径
+    static CStdString m_pStrResourceZip;    //zip包资源名称
+    static CStdPtrArray m_aPreMessages;    //预处理消息队列
+======update 2011-07-09========================================
+10 class UIMarkup -  解析XML
+    CMarkup()
+      功能 - 构造函数
+      pstrXML - xml数据
+      实现 -
+        初始化成员变量
+        调用Load()
+    ~CMarkup()
+      功能 - 析构函数
+
+    Load()
+      功能 - 加载xml数据
+      pstrXML - xml数据
+    LoadFromMem()
+      功能 - 从内存中加载xml数据
+      pByte - 内存数据指针
+      dwSize - 大小
+      encoding - 编码方式 XMLFILE_ENCODING_UTF8(默认) XMLFILE_ENCODING_UNICODE XMLFILE_ENCODING_ASNI
+      实现 -
+        进行编码转换
+        申请控件
+        复制数据
+
+    LoadFromFile()
+     功能 - 从文件中加载xml数据
+     pstrFilename - 文件名
+     encoding - 编码方式
+     实现 -
+       判断资源类型是否为zip包,如果为zip包则进行解压
+       调用LoadFromMem()
+    Release() - 释放xml数据和元素信息数据
+    IsValid() - Markup是否有效
+
+    SetPreserveWhitespace() - 设置是否保存空白行
+    GetLastErrorMessage()
+      功能 - 得到错误信息
+      pstrMessage - [out]错误信息内容
+      cchMax - 信息长度
+    GetLastErrorLocation
+      功能 - 得到出错位置
+      pstrSource - 错误所在位置内容
+      cchMax - 内容长度
+
+    GetRoot() - 得到根节点
+
+private:
+    tagXMLELEMENT    //元素结构
+    {
+        ULONG iStart;    //在m_pstrXML中起始位置
+        ULONG iChild;    //子标签在m_pstrXML中的位置
+        ULONG iNext;    //同级下一个标签在m_pstrXML中的位置
+        ULONG iParent;    //上一级标签在m_pstrXML中的位置
+        ULONG iData;    //元素数据在m_pstrXML中的位置
+    } XMLELEMENT;
+
+    LPTSTR m_pstrXML;    //xml数据
+    XMLELEMENT* m_pElements;    //元素列表
+    ULONG m_nElements;    //元素数量
+    ULONG m_nReservedElements;    //存储元素空间
+    TCHAR m_szErrorMsg[100];    //错误消息
+    TCHAR m_szErrorXML[50];        //错误内容
+    bool m_bPreserveWhitespace;    //是否过滤空白
+    解析xml数据
+    bool _Parse();
+    bool _Parse(LPTSTR& pstrText, ULONG iParent);
+      实现 - 
+        for(;;)
+        {
+            如果为顶层则返回
+            填充element
+            解析名字
+            解析属性
+            标签闭合方式
+            如果为/>则continue
+            如果为>则递归调用_Parse()
+            如果为该标签的对应闭合标签 continue
+        }
+    XMLELEMENT* _ReserveElement(); - 申请保存元素空间
+    跳过空白
+      inline void _SkipWhitespace(LPTSTR& pstr) const;
+      inline void _SkipWhitespace(LPCTSTR& pstr) const;
+    跳过标识符
+      inline void _SkipIdentifier(LPTSTR& pstr) const;
+      inline void _SkipIdentifier(LPCTSTR& pstr) const;
+    
+    bool _ParseData(LPTSTR& pstrText, LPTSTR& pstrData, char cEnd);
+     功能 - 解析数据
+     pstrText - 被解析的数据字符串
+     pstrData - 解析后的数据字符串
+     cEnd - 终止字符
+    解析转义字符
+      void _ParseMetaChar(LPTSTR& pstrText, LPTSTR& pstrDest);
+    解析属性
+      bool _ParseAttributes(LPTSTR& pstrText);
+    记录错误信息返回错误
+      bool _Failed(LPCTSTR pstrError, LPCTSTR pstrLocation = NULL);
+11 class CMarkupNode
+    CMarkupNode
+=======update 2011-07-10========
+11 class CMarkupNode
+        CMarkupNode() - 构造函数 构造一个空节点
+    CMarkupNode(CMarkup* pOwner, int iPos)
+          功能 - 构造函数
+          pOwner - CMarkup指针
+          iPos - 在xml数据中的位置
+        IsValid() - 节点对象是否有效
+        GetParent() - 得到父节点
+        GetSibling() - 得到兄弟节点
+        GetChild() - 得到子节点
+        GetChild(LPCTSTR pstrName)
+          功能 - 按名字得到子节点
+          实现 - 循环查找所有子节点，直到名字匹配
+        HasSiblings() - 是否有兄弟节点
+        HasChildren() - 是否有子节点
+        GetName() - 得到节点对应的标签名
+        GetValue() - 得到节点对应的标签数据值
+        HasAttributes() - 是否有属性
+        HasAttribute(LPCTSTR pstrName) - 是否有名为pstrName的属性
+        GetAttributeCount() - 得到节点属性的数量
+        GetAttributeName(int iIndex) - 按序号得到属性名称
+    bool GetAttributeValue(int iIndex, LPTSTR pstrValue, SIZE_T cchMax)
+          功能 - 得到属性
+          iIndex - 属性序号
+          pstrValue - [out] 属性值字符串
+          cchMax - 属性值字符串长度
+    bool GetAttributeValue(LPCTSTR pstrName, LPTSTR pstrValue, SIZE_T cchMax)
+          功能 - 得到属性
+          pstrName - 属性名
+          pstrValue - [out] 属性值字符串
+          cchMax - 属性值字符串长度
+
+        _MapAttributes() - 解析xml属性建立 属性名和值的表映射到xml数据的位置
+
+    enum { MAX_XML_ATTRIBUTES = 64 };        //属性最大数量限制
+
+    typedef struct
+    {
+        ULONG iName;
+        ULONG iValue;
+    } XMLATTRIBUTE;        //属性结构
+
+    int m_iPos;        //节点在xml数据中的位置
+    int m_nAttributes;        //属性数量
+    XMLATTRIBUTE m_aAttributes[MAX_XML_ATTRIBUTES];        //属性-值 映射xml位置 列表
+    CMarkup* m_pOwner;        - CMarkup指针
+12 class IDialogBuilderCallback - 构建UI时回调类 用于创造用户自定义的控件
+   virtual CControlUI* CreateControl(LPCTSTR pstrClass) = 0 - 创建用户自定义控件, pstrClass控件名
+13 class CDialogBuilder - 构建UI
+     CControlUI* Create();
+           功能 - 构建UI
+         STRINGorID xml - 可以是一个内存xml数据或一个文件名
+         STRINGorID type = (UINT) 0 - 如果xml数据位于EXE资源中则type指定资源类型
+         IDialogBuilderCallback* pCallback = NULL - 回调函数
+         CPaintManagerUI* pManager = NULL - 绘制管理者指针
+           实现 -
+             判断xml类型
+             加载xml数据
+             调用Create(pCallback, pManager)构建
+    CControlUI* Create(IDialogBuilderCallback* pCallback = NULL, CPaintManagerUI* pManager = NULL);
+          功能 - 构建UI
+          实现 - 
+            得到顶层Window标签,并解析属性
+        调用_Parse() 解析xml
+    void GetLastErrorMessage(LPTSTR pstrMessage, SIZE_T cchMax) const; - 错误信息
+    void GetLastErrorLocation(LPTSTR pstrSource, SIZE_T cchMax) const; - 出错位置
+
+    CControlUI* _Parse(CMarkupNode* parent, CControlUI* pParent = NULL, CPaintManagerUI* pManager = NULL);
+        实现 -
+          for(循环顶级标签) 
+          {
+              按xml标签创建控件对象
+                  如果不是标准控件则调用m_pCallback->CreateControl()创建用户自定义控件对象
+                  如果有子节点则递归调用_Parse()
+                  因为某些属性和父窗口相关，比如selected，必须先Add到父窗口
+                  初始化控件默认属性
+                  根据xml数据解析处理控件属性
+         }
+   CMarkup m_xml; //CMarkup对象
+   IDialogBuilderCallback* m_pCallback;//构建控件回调
+14 class CControlUI 控件
+    GetName() - 得到控件名称 名称为控件的唯一ID
+    SetName() - 设置控件名称
+    GetInterface() - 得到控件指针
+    GetClass() - 得到控件类名
+    GetControlFlags() - 得到控件类型标志
+    Activate() - 控件是否活跃 (非不可用状态，非不可见状态)
+    GetManager() - 得到绘制管理者
+    SetMananer()
+          功能 - 设置控件的绘制管理者
+          实现 -
+            设置控件管理者
+            初始化
+        GetParent() - 得到父控件
+        GetText() - 得到控件显示内容
+        SetText() - 设置控件显示内容
+        GetBkColor() - 得到背景色
+        GetBkColor2() - 得到背景色2
+        SetBkColor2() - 设置背景色2
+        GetBkColor3() - 得到背景色3
+        SetBkColor3() - 设置背景色3
+* 背景色1,2,3用于渐变色 颜色渐变过程为1->2->3
+        GetBkImage() - 得到背景图片
+        SetBkImage() - 设置背景图片
+        GetBorderColor() - 得到边的颜色
+        SetBorderColor() - 设置边的颜色
+        GetFocusBorderColor() - 设置获得焦点时边的颜色
+        GetBorderSize() - 得到边的宽度
+        SetBorderSize() - 设置边的宽度
+        GetBorderRound() - 得到圆角
+        SetBorderRound() - 设置圆角
+        DrawImage() - 绘制图片
+        GetPos() - 得到控件位置
+        SetPos() - 设置控件位置并重绘
+        GetWidth() - 得到控件宽度
+        GetHeight() - 得到控件高度
+        GetX() - 得到控件横坐标位置(左上点横坐标)
+        GetY() - 得到控件纵坐标位置(左上点纵坐标)
+        GetPadding() - 设置外边距，由上层窗口绘制(求周围控件离它远点或近点(负值，不过受绘制顺序影响，比较少用)
+        SetPadding() - 设置外边距，由上层窗口绘制
+    GetFixedXY() - 实际大小位置使用GetPos获取，这里得到的是预设的参考值
+    SetFixedXY() - 仅float为true时有效
+    GetFixedWidth() - 实际大小位置使用GetPos获取，这里得到的是预设的参考值
+    SetFixedWidth() - 预设的参考值
+    GetFixedHeight() - 实际大小位置使用GetPos获取，这里得到的是预设的参考值
+    SetFixedHeight() - 预设的参考值
+        设置大小的限制值
+      GetMinWidth()
+          SetMinWidth()
+          GetMaxWidth()
+          SetMaxWidth()
+          GetMinHeight()
+          SetMinHeight()
+          GetMaxHeight()
+          SetMaxHeight()
+        SetRelativePos() - 设置相对位置比例
+        SetRelativeParentSize() - 设置父控件大小
+        GetRelativePos() - 得到相对位置比例
+        IsRelativePos() -是使用相对位置
+        获取/设置 提示信息
+          GetToolTip()
+          SetToolTip()
+        获取/设置 快捷键
+          GetShortcut()
+          SetShortcut()
+        获取/设置 上下文菜单是否被使用
+          IsContextMenuUsed()
+        获取/设置 用户数据(字符串)
+          GetUserData()
+          SetUserData()
+        获取/设置 用户指针
+          GetTag()
+          SetTag()
+        获取/设置 控件是否可见
+          IsVisible()
+          SetVisible()
+          SetInternVisible() // 仅供内部调用，有些UI拥有窗口句柄，需要重写此函数
+            有窗口句柄的UI在设置不可见时，需要先失去焦点
+

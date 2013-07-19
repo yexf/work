@@ -1,0 +1,92 @@
+/*------------------------------------------------------------------------------------------- 
+过程名:ChangeIcon 
+功能:  修改exe文件的图标 
+使用方法:建立win32应用程序,拷贝如下代码即可,已经调试通过... 
+作者:singer 
+欢迎提出更好的算法... 
+-------------------------------------------------------------------------------------------*/  
+#include "stdafx.h"  
+  
+#include<string>  
+using    namespace    std;  
+   
+struct TIconHeader  
+{  
+     WORD idReserved;  
+     WORD idType;  
+     WORD idCount; //目录数  
+};  
+//设置字对齐,否则读取失败...  
+struct TResDirHeader  
+{  
+     BYTE bWidth;    //图像宽度，以象素为单位。一个字节  
+     BYTE bHeight;    // 图像高度，以象素为单位。一个字节  
+     BYTE bColorCount;   // 图像中的颜色数（如果是>=8bpp的位图则为0）  
+     BYTE bReserved;    //保留字必须是0  
+     WORD wPlanes;    //标设备说明位面数，其值将总是被设为1  
+     WORD wBitCount;    // 每象素所占位数  
+     DWORD lBYTEsInRes;   // 每份资源所占字节数  
+     DWORD lImageOffset;   //图像数据（iconimage）起点偏移位置  
+};  
+     
+typedef struct TIconResDirGrp  
+{  
+     TIconHeader   idHeader ;  
+     TResDirHeader idEntries[1];  
+}*PIconResDirGrp;  
+   
+//WORD MakeLangID();  
+//void ChangeIcon(string FileName,string IconFile, string ResName);  
+   
+WORD MakeLangID()  
+{  
+return (SUBLANG_ENGLISH_US << 10) | LANG_ENGLISH;  
+}  
+   
+void ChangeIcon(LPCTSTR FileName,LPCTSTR IconFile, LPCTSTR ResName)  
+{  
+int i,FileGrpSize;  
+DWORD dwFileSize,dwBytesRead;  
+void filemem,*p;  
+PIconResDirGrp FileGrp;  
+HANDLE hfile,hUpdateRes;  
+//打开图标文件...  
+hfile=CreateFile(IconFile,GENERIC_READ|GENERIC_WRITE, FILE_SHARE_READ|FILE_SHARE_WRITE,NULL,OPEN_EXISTING,FILE_FLAG_SEQUENTIAL_SCAN, 0) ;  
+if (hfile==INVALID_HANDLE_VALUE)  
+{  
+   MessageBox(0,"打开文件失败!",NULL,0);  
+   return;  
+}  
+dwFileSize = GetFileSize(hfile,NULL);//获取文件大小...  
+filemem=malloc(dwFileSize);     //开辟内存..  
+ReadFile(hfile,filemem, dwFileSize,&dwBytesRead,NULL) ;//文件信息读入内存...  
+CloseHandle(hfile);//关闭文件...  
+//关联文件头...  
+FileGrp=PIconResDirGrp(filemem);  
+FileGrpSize=sizeof(TIconResDirGrp)+(FileGrp->idHeader.idCount-1)*sizeof(TResDirHeader);//文件头大小...  
+//开始更改资源...  
+hUpdateRes=BeginUpdateResource(FileName, false);  
+//更改每个图片资源...  
+for(i=0;i<FileGrp->idHeader.idCount;i++)  
+{ //定位到资源位置,注意指针的使用,指针不允许做价运算,所以应先转换为整数,运算后转换为指针...  
+   p=(void)((DWORD)filemem+FileGrp->idEntries[i].lImageOffset);  
+   UpdateResource(hUpdateRes,RT_ICON,MAKEINTRESOURCE(FileGrp->idEntries[i].lImageOffset),//更换每一个图片资源  
+                             MakeLangID(), p,   FileGrp->idEntries[i].lBYTEsInRes);  
+        //如果不使用外部函数,可以将MakeLangID写到内部来  
+                             // 或者干脆在此写入:LANG_CHINESE  
+}  
+UpdateResource(hUpdateRes,RT_GROUP_ICON, ResName, //更换头信息  
+                    MakeLangID(), FileGrp, FileGrpSize);                                 
+EndUpdateResource(hUpdateRes, false);  
+free(filemem);    
+}  
+   
+//测试使用...  
+int APIENTRY WinMain(HINSTANCE hInstance,  
+                      HINSTANCE hPrevInstance,  
+                      LPSTR      lpCmdLine,  
+                      int        nCmdShow)  
+{  
+ChangeIcon("E:\QQ.exe","0101.ico","AyIcon");  
+return 0;  
+}  

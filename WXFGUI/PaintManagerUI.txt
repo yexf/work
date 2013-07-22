@@ -1,0 +1,240 @@
+class CPaintManagerUI
+* 绘制管理者
+* 函数
+   Init() - 初始化
+   NeedUpdate() - 
+   Invalidate() - InvalidateRect API的封装
+   
+   GetPaintDC() - 设备句柄相关函数
+   GetPaintWindow() - 得到窗口句柄
+   GetTooltipWindow() - 得到提示窗口句柄
+   GetMousePos() - 得到鼠标位置
+   GetClientSize() - 得到客户端区域大小
+   获取/设置 窗口初始化时大小
+     GetInitSize()
+     SetInitSize()
+   获取/设置 托腮大小
+     GetSizeBox()
+     SetSizeBox()
+   获取/设置 标题区域大小
+     GetCaptionRect()
+     SetCaptionRect()
+   获取/设置 圆角大小
+     GetRoundCorner()
+     SetRoundCorner()
+   获取/设置 大小的最小限制
+     GetMinInfo()
+     SetMinInfo()
+   获取/设置 大小的最大限制
+     GetMaxInfo()
+     SetMaxInfo()
+   设置透明度
+     SetTransparent()
+   设置背景是否使用透明属性 
+     SetBackgroundTransparent()
+   获取/设置 刷新区域属性
+     IsShowUpdateRect()
+     SetShowUpdateRect()
+   获取/设置 应用程序对象实例句柄
+     GetInstance()
+     SetInstance()
+   获取 可执行程序所在路径
+     GetInstancePath()
+   获取/设置 当前工作目录
+     GetCurrentPath()
+     SetCurrentPath()
+   获取/设置 资源动态库句柄
+    GetResourceDll()
+    SetResourceDll()
+  获取/设置 资源路径
+    GetResourcePath()
+    SetResourcePath()
+  获取/设置 资源压缩包文件名
+    GetResourceZip()
+    SetResourceZip()
+  使用绘制管理者的根绘制管理者的资源设置 - 循环得到父绘制管理者直到找到最顶层的绘制管理者
+    UseParentResource()
+  得到绘制管理者
+    GetParentResource()
+  获取/设置 非可用状态文字颜色
+    GetDefaultDisabledColor()
+    SetDefaultDisabledColor()
+  获取/设置 默认字体颜色
+    GetDefaultFontColor()
+    SetDefaultFontColor()
+  获取/设置超链接默认字体颜色
+    GetDefaultLinkFontColor()
+    SetDefaultLinkFontColor()
+  获取/设置 鼠标漂浮在链接上时默认字体颜色
+    GetDefaultLinkHoverFontColor()
+    SetDefaultLinkHoverFontColor()
+  获取/设置 选中后背景颜色
+    GetDefaultSelectedBkColor()
+    SetDefaultSelectedBkColor()
+  获取/设置 默认字体
+    GetDefaultFontInfo()
+    SetDefaultFont()
+  字体列表操作
+    DWORD GetCustomFontCount() - 得到字体列表中项数量
+    HFONT AddFont(LPCTSTR pStrFontName, int nSize, bool bBold, bool bUnderline, bool bItalic) - 加入一种字体到字体列表中
+    HFONT AddFontAt(int index, LPCTSTR pStrFontName, int nSize, bool bBold, bool bUnderline, bool bItalic) - 加入一种字体到字体列表的指定位置
+    HFONT GetFont(int index) - 按序号得到字体列表中的字体
+    HFONT GetFont(LPCTSTR pStrFontName, int nSize, bool bBold, bool bUnderline, bool bItalic) - 按字体属性得到字体列表中的字体
+    bool FindFont(HFONT hFont) - 按句柄查找字体列表中的一项
+    bool FindFont(LPCTSTR pStrFontName, int nSize, bool bBold, bool bUnderline, bool bItalic) - 按属性查找字体列表中的一项
+    bool RemoveFont(HFONT hFont)  - 按句柄移除字体列表中的指定项
+    bool RemoveFontAt(int index) - 按序号移除字体列表中的指定项 
+    void RemoveAllFonts() - 移除字体列表中的所有项
+    TFontInfo* GetFontInfo(int index) - 按序号得到字体列表中项的属性
+    TFontInfo* GetFontInfo(HFONT hFont) - 按句柄得到字体列表中项的属性
+  图片列表操作
+    const TImageInfo* GetImage(LPCTSTR bitmap);
+    const TImageInfo* GetImageEx(LPCTSTR bitmap, LPCTSTR type = NULL, DWORD mask = 0);
+    const TImageInfo* AddImage(LPCTSTR bitmap, LPCTSTR type = NULL, DWORD mask = 0);
+    bool RemoveImage(LPCTSTR bitmap);
+    void RemoveAllImages();
+  默认属性列表操作
+    void AddDefaultAttributeList(LPCTSTR pStrControlName, LPCTSTR pStrControlAttrList);
+    LPCTSTR GetDefaultAttributeList(LPCTSTR pStrControlName) const;
+    bool RemoveDefaultAttributeList(LPCTSTR pStrControlName);
+    const CStdStringPtrMap& GetDefaultAttribultes() const;
+    void RemoveAllDefaultAttributeList();
+  将控件树附加到当前绘制管理者
+    bool AttachDialog(CControlUI* pControl);
+  初始化控件 把控件名称加入到绘制管理者的控件名map中
+    bool InitControls(CControlUI* pControl, CControlUI* pParent = NULL);
+  重置控件
+    void ReapObjects(CControlUI* pControl);
+  选项组操作
+    bool AddOptionGroup(LPCTSTR pStrGroupName, CControlUI* pControl); - 添加选项组
+    CStdPtrArray* GetOptionGroup(LPCTSTR pStrGroupName); - 通过名称得到选项组
+    void RemoveOptionGroup(LPCTSTR pStrGroupName, CControlUI* pControl); - 移除选项组
+    void RemoveAllOptionGroups(); - 移除所有选项组
+  得到控件焦点
+    CControlUI* GetFocus() const;
+  控件获得焦点
+    void SetFocus(CControlUI* pControl);
+  得到标签页控件
+    bool SetNextTabControl(bool bForward = true);
+  定时器操作
+    bool SetTimer(CControlUI* pControl, UINT nTimerID, UINT uElapse); - 设置一个定时器
+    bool KillTimer(CControlUI* pControl, UINT nTimerID); - 清除一个定时器
+    void RemoveAllTimers(); - 清楚所有定时器
+  捕获鼠标
+    void SetCapture();
+  释放捕获鼠标
+    void ReleaseCapture();
+  鼠标是否被捕获
+    bool IsCaptured();
+
+    bool AddNotifier(INotifyUI* pControl); - 加入一个Listener
+    bool RemoveNotifier(INotifyUI* pControl);   - 移除一个Listener
+    void SendNotify(TNotifyUI& Msg); - 发送一个Notify消息
+    void SendNotify(CControlUI* pControl, LPCTSTR pstrMessage, WPARAM wParam = 0, LPARAM lParam = 0); - 发送一个Notify消息
+
+    bool AddPreMessageFilter(IMessageFilterUI* pFilter); - 加入一个预处理Message Filter
+    bool RemovePreMessageFilter(IMessageFilterUI* pFilter); - 移除一个预处理Message Filter
+
+    bool AddMessageFilter(IMessageFilterUI* pFilter); - 加入一个Message Filter
+    bool RemoveMessageFilter(IMessageFilterUI* pFilter); - 移除一个Message Filter
+
+  PostPaint控件操作
+    int GetPostPaintCount() const; - 得到PostPaint控件数量
+    bool AddPostPaint(CControlUI* pControl); - 加入PostPaint控件
+    bool RemovePostPaint(CControlUI* pControl); - 移除一个PostPaint控件
+    bool SetPostPaintIndex(CControlUI* pControl, int iIndex); - 设置控件到指定的序列位置
+
+  加入控件到延迟处理列表当中
+    void AddDelayedCleanup(CControlUI* pControl);
+  得到根控件
+    CControlUI* GetRoot() const;
+  按照位置找到控件
+    CControlUI* FindControl(POINT pt) const;
+  按父窗口和位置查找控件
+    CControlUI* FindControl(CControlUI* pParent, POINT pt) const;
+  按名字查找控件
+    CControlUI* FindControl(LPCTSTR pstrName);
+  按父窗口和名字查找控件
+    CControlUI* FindControl(CControlUI* pParent, LPCTSTR pstrName);
+  消息循环
+    static void MessageLoop();
+  消息处理
+    static bool TranslateMessage(const LPMSG pMsg);
+  消息处理
+    bool MessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, LRESULT& lRes);
+  消息预处理
+    bool PreMessageHandler(UINT uMsg, WPARAM wParam, LPARAM lParam, LRESULT& lRes);
+
+  回调函数 - 比较属性(pData)与控件(pThis)的属性是否相同
+    static CControlUI* CALLBACK __FindControlFromNameHash(CControlUI* pThis, LPVOID pData); - 按名称查找控件的回调函数
+    static CControlUI* CALLBACK __FindControlFromCount(CControlUI* pThis, LPVOID pData); - 计算控件数目的回调函数
+    static CControlUI* CALLBACK __FindControlFromPoint(CControlUI* pThis, LPVOID pData); - 按位置查找控件的回调函数
+    static CControlUI* CALLBACK __FindControlFromTab(CControlUI* pThis, LPVOID pData); - 查找下一个相应tab的控件
+    static CControlUI* CALLBACK __FindControlFromShortcut(CControlUI* pThis, LPVOID pData); - 快捷方式对应的控件
+    static CControlUI* CALLBACK __FindControlFromUpdate(CControlUI* pThis, LPVOID pData); - 查找需要刷新的控件
+    static CControlUI* CALLBACK __FindControlFromNameByParent(CControlUI* pThis, LPVOID pData); - 查找子控件
+
+    HWND m_hWndPaint;    //绘制窗口句柄
+    HDC m_hDcPaint;        //绘制DC
+    HDC m_hDcOffscreen; //屏幕兼容DC
+    HDC m_hDcBackground;    //背景DC
+    HBITMAP m_hbmpOffscreen;    //屏幕DIB
+    HBITMAP m_hbmpBackground;    //背景DIB
+    HWND m_hwndTooltip;    //提示窗口句柄
+    TOOLINFO m_ToolTip;    //提示结构
+    bool m_bShowUpdateRect;    //是否更新
+    //
+    CControlUI* m_pRoot;    //根控件指针
+    CControlUI* m_pFocus;    //获得焦点控件指针
+    CControlUI* m_pEventHover;    //鼠标停留控件指针
+    CControlUI* m_pEventClick;    //点击事件控件指针
+    CControlUI* m_pEventKey;    //相应键盘事件控件指针
+    //
+    POINT m_ptLastMousePos;    //鼠标位置
+    SIZE m_szMinWindow;        //窗口最小限制
+    SIZE m_szMaxWindow;        //窗口最大限制
+    SIZE m_szInitWindowSize;    //初始化窗口大小
+    RECT m_rcSizeBox;        //托腮大小
+    SIZE m_szRoundCorner;    //圆角大小
+    RECT m_rcCaption;        //标题大小
+    UINT m_uTimerID;        //计时器ID
+    bool m_bFirstLayout;    //是否为第一层
+    bool m_bUpdateNeeded;    //是否需要更新
+    bool m_bFocusNeeded;    //是否需要焦点
+    bool m_bOffscreenPaint;    //是否绘制m_hDcOffscreen
+    bool m_bAlphaBackground;    //背景是否透明
+    bool m_bMouseTracking;    //是否追踪鼠标
+    bool m_bMouseCapture;    //是否捕获鼠标
+    
+    CStdPtrArray m_aNotifiers;    //Listener 列表
+    CStdPtrArray m_aTimers;        //计时器列表
+    CStdPtrArray m_aPreMessageFilters;    //预处理消息列表
+    CStdPtrArray m_aMessageFilters;        //消息处理列表
+    CStdPtrArray m_aPostPaintControls;    //PostPaint控件列表
+    CStdPtrArray m_aDelayedCleanup;    //延迟释放控件列表
+    CStdStringPtrMap m_mNameHash;    //控件名哈希列表
+    CStdStringPtrMap m_mOptionGroup;    //选项组列表
+    
+    CPaintManagerUI* m_pParentResourcePM;    //当前绘制管理者的上一层绘制管理者（父绘制管理者）
+    DWORD m_dwDefalutDisabledColor;    //默认非可用状态字体颜色
+    DWORD m_dwDefalutFontColor;    //默认字体颜色
+    DWORD m_dwDefalutLinkFontColor;    //默认链接颜色
+    DWORD m_dwDefalutLinkHoverFontColor;    //默认鼠标漂浮时字体颜色
+    DWORD m_dwDefalutSelectedBkColor;    //默认被选择后背景颜色
+    TFontInfo m_DefaultFontInfo;    //默认字体信息
+    CStdPtrArray m_aCustomFonts;    //字体列表
+
+    CStdStringPtrMap m_mImageHash;    //图片资源名哈希表
+    CStdStringPtrMap m_DefaultAttrHash;    //默认属性哈希表
+    
+    static HINSTANCE m_hInstance;    //应用程序对象实例句柄
+    static HINSTANCE m_hResourceInstance;    //资源对象实例句柄
+    static CStdString m_pStrResourcePath;    //资源路径
+    static CStdString m_pStrResourceZip;    //zip包资源名称
+	static bool m_bCachedResourceZip;		
+    static HANDLE m_hResourceZip;
+    static short m_H;
+    static short m_S;
+    static short m_L;
+    static CStdPtrArray m_aPreMessages;   //预处理消息队列
+    static CStdPtrArray m_aPlugins;

@@ -42,8 +42,7 @@
             <HorizontalLayout name="HorizontalLayoutUI8" bkcolor="#FF97C0DA" bkcolor2="#FFB8DFF2" />
             <Control name="ControlUI2" width="1" />
         </HorizontalLayout>
-        <Control name="ControlUI3" height="25" bkcolor="#FFB8DFF2" />
-        <HorizontalLayout name="HorizontalLayoutUI9" float="true" pos="1,96,0,0" width="798" height="26" bkcolor="#FFB8DFF2">
+        <HorizontalLayout name="HorizontalLayoutUI9" height="26" bkcolor="#FFB8DFF2">
             <Option name="examine" text="电脑体检" float="true" pos="6,0,0,0" width="78" height="26" textcolor="#FF386382" disabledtextcolor="#FFA7A6AA" font="2" align="center" normalimage="tabbar_normal.png" hotimage="tabbar_hover.png" pushedimage="tabbar_pushed.png" group="contenttab" selected="true" selectedimage="tabbar_pushed.png" />
             <Option name="trojan" text="查杀木马" float="true" pos="86,0,0,0" width="78" height="26" textcolor="#FF386382" disabledtextcolor="#FFA7A6AA" font="2" align="center" normalimage="tabbar_normal.png" hotimage="tabbar_hover.png" pushedimage="tabbar_pushed.png" group="contenttab" selectedimage="tabbar_pushed.png" />
             <Option name="plugins" text="清理插件" float="true" pos="166,0,0,0" width="78" height="26" textcolor="#FF386382" disabledtextcolor="#FFA7A6AA" font="2" align="center" normalimage="tabbar_normal.png" hotimage="tabbar_hover.png" pushedimage="tabbar_pushed.png" group="contenttab" selectedimage="tabbar_pushed.png" />

@@ -1,0 +1,1 @@
+@reg add "HKEY_CURRENT_USER\Environment" /v Path /t reg_expand_sz /d " %path%;%cd%; " /f

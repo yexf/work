@@ -1,18 +1,28 @@
-﻿生成启动时间为 2013/7/17 15:12:20。
-     1>项目“D:\Design\WXF\wxf_fft\wxf_fft.vcxproj”在节点 2 上(build 个目标)。
+﻿生成启动时间为 2013/7/30 12:00:41。
+     1>项目“D:\Work\WXF\wxf_fft\wxf_fft.vcxproj”在节点 2 上(rebuild 个目标)。
+     1>_PrepareForClean:
+         正在删除文件“Debug\wxf_fft.lastbuildstate”。
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(299,5): warning MSB8004: Output 目录未以斜杠结尾。此生成实例将添加斜杠，因为必须有这个斜杠才能正确计算 Output 目录。
-     1>InitializeBuildStatus:
+       InitializeBuildStatus:
          正在创建“Debug\wxf_fft.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        ClCompile:
-         所有输出均为最新。
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\include /I..\wxf_comm /ZI /nologo /W3 /WX- /Od /Oy- /D WXF_LIB /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt wxf_complex.cpp wxf_fft.cpp
+         wxf_fft.cpp
+     1>d:\work\wxf\wxf_fft\wxf_fft.cpp(69): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\work\wxf\wxf_fft\wxf_fft.cpp(73): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\work\wxf\wxf_fft\wxf_fft.cpp(97): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\work\wxf\wxf_fft\wxf_fft.cpp(103): warning C4018: “<”: 有符号/无符号不匹配
+         wxf_complex.cpp
+         正在生成代码...
        Lib:
-         所有输出均为最新。
-         wxf_fft.vcxproj -> D:\Design\WXF\wxf_fft\..\lib\wxf_fft.lib
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"..\lib\wxf_fft.lib" /NOLOGO Debug\wxf_complex.obj
+         Debug\wxf_fft.obj
+         wxf_fft.vcxproj -> D:\Work\WXF\wxf_fft\..\lib\wxf_fft.lib
        FinalizeBuildStatus:
          正在删除文件“Debug\wxf_fft.unsuccessfulbuild”。
          正在对“Debug\wxf_fft.lastbuildstate”执行 Touch 任务。
-     1>已完成生成项目“D:\Design\WXF\wxf_fft\wxf_fft.vcxproj”(build 个目标)的操作。
+     1>已完成生成项目“D:\Work\WXF\wxf_fft\wxf_fft.vcxproj”(rebuild 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:00.04
+已用时间 00:00:00.94

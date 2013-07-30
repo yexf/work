@@ -1,12 +1,24 @@
-﻿生成启动时间为 2013/7/17 16:22:17。
-     1>项目“D:\Design\WXF\wxf_utils\wxf_utils.vcxproj”在节点 2 上(build 个目标)。
-     1>InitializeBuildStatus:
+﻿生成启动时间为 2013/7/30 12:00:41。
+     1>项目“D:\Work\WXF\wxf_utils\wxf_utils.vcxproj”在节点 3 上(rebuild 个目标)。
+     1>_PrepareForClean:
+         正在删除文件“Debug\wxf_utils.lastbuildstate”。
+       InitializeBuildStatus:
          正在创建“Debug\wxf_utils.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
        ClCompile:
-         所有输出均为最新。
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WXF_LIB /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt wxf_fbuf.c wxf_fq.c wxf_gxmem.c wxf_ipc.c wxf_utils.c
+         wxf_utils.c
+         wxf_ipc.c
+         wxf_gxmem.c
+         wxf_fq.c
+         wxf_fbuf.c
+         正在生成代码...
        Lib:
-         所有输出均为最新。
-         wxf_utils.vcxproj -> D:\Design\WXF\wxf_utils\..\lib\wxf_utils.lib
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"..\lib\wxf_utils.lib" /NOLOGO Debug\wxf_fbuf.obj
+         Debug\wxf_fq.obj
+         Debug\wxf_gxmem.obj
+         Debug\wxf_ipc.obj
+         Debug\wxf_utils.obj
+         wxf_utils.vcxproj -> D:\Work\WXF\wxf_utils\..\lib\wxf_utils.lib
        PostBuildEvent:
          install
          :VCEnd
@@ -19,8 +31,8 @@
        FinalizeBuildStatus:
          正在删除文件“Debug\wxf_utils.unsuccessfulbuild”。
          正在对“Debug\wxf_utils.lastbuildstate”执行 Touch 任务。
-     1>已完成生成项目“D:\Design\WXF\wxf_utils\wxf_utils.vcxproj”(build 个目标)的操作。
+     1>已完成生成项目“D:\Work\WXF\wxf_utils\wxf_utils.vcxproj”(rebuild 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:00.78
+已用时间 00:00:02.82

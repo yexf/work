@@ -58,6 +58,6 @@ extern "C" {
 #include "wxf_gxmem.h"
 #include "wxf_fq.h"
 #include "wxf_fbuf.h"
-
+#include "wxf_comm.h"
 
 #endif /*_wxf_utils_h_*/

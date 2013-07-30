@@ -4,14 +4,21 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wxf_comm", "wxf_comm\wxf_comm.vcxproj", "{F9F4ACCB-2C30-45A5-BEBF-606487A7505D}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wxf_utils", "wxf_utils\wxf_utils.vcxproj", "{029F989A-9EDD-4DE8-B40D-67784D3B4383}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F9F4ACCB-2C30-45A5-BEBF-606487A7505D} = {F9F4ACCB-2C30-45A5-BEBF-606487A7505D}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wxf_test", "wxf_test\wxf_test.vcxproj", "{72CBC1E0-8E1D-42C1-B83D-427E2297B921}"
 	ProjectSection(ProjectDependencies) = postProject
 		{029F989A-9EDD-4DE8-B40D-67784D3B4383} = {029F989A-9EDD-4DE8-B40D-67784D3B4383}
+		{AFC062CA-8706-4E73-BF64-8A100E2C4FB6} = {AFC062CA-8706-4E73-BF64-8A100E2C4FB6}
 		{F9F4ACCB-2C30-45A5-BEBF-606487A7505D} = {F9F4ACCB-2C30-45A5-BEBF-606487A7505D}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wxf_fft", "wxf_fft\wxf_fft.vcxproj", "{AFC062CA-8706-4E73-BF64-8A100E2C4FB6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F9F4ACCB-2C30-45A5-BEBF-606487A7505D} = {F9F4ACCB-2C30-45A5-BEBF-606487A7505D}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
